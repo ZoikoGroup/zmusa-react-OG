@@ -994,7 +994,7 @@ const Header = () => {
                         <span className={styles.colHeaderTitle}>Before You Go</span>
                       </div>
                       <div className={styles.linkList}>
-                        <Link href="/international-calling-country-list" className={styles.linkItem}>
+                        <Link href="/check-a-destination" className={styles.linkItem}>
                           <span>Check a Destination</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
