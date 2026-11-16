@@ -40,6 +40,11 @@ const defaultMeta = {
    Add / edit entries here. This is a large map built from your doc.
 ------------------------- */
 const metaMap = {
+  "/how-giving-works": {
+    title: "How Giving Works | Animal Welfare Commitment | Zoiko Mobile",
+    description:
+      "Learn how Zoiko Mobile supports animal welfare through verified company contributions, clear selection standards, and evidence-led reporting.",
+  },
   "/black-friday-mobile-sim-deals-2025": {
     title: "Black Friday Mobile & SIM Card Deals 2025 | Zoiko Mobile",
     description:
@@ -439,6 +444,16 @@ const metaMap = {
     title: "New Year Phone Plans Deals 2026 | 30% Off All Plans",
     description:
       "Celebrate 2026 with Zoiko Mobile New Year Phone Plans Deals – 30% off for 3 months on all mobile plans. Don’t miss this special offer!",
+  },
+  "/stories-and-impact": {
+    title: "Stories & Impact | Animal Welfare & Music Community | Zoiko Mobile",
+    description:
+      "Real moments from our animal-welfare and music community, told with care. Explore editorial stories, verified case studies, and official impact reports.",
+  },
+  "/events-and-experiences": {
+    title: "Events & Experiences | Music, Animals & Community | Zoiko Mobile",
+    description:
+      "Find community events connected to the music and animal-welfare causes we care about, in person and online. Every listing shows who runs it, when and where.",
   }
 
   // add more entries as needed...

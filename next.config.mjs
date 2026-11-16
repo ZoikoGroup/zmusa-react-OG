@@ -13,6 +13,18 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "zmapi.zoikomobile.co.uk",
+      },
+      {
+        protocol: "https",
+        hostname: "zoikomobile.com",
+      },
+    ],
+  },
   async headers() {
     return [
       {

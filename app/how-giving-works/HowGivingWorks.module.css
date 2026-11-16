@@ -1,0 +1,1318 @@
+/* ===================================================
+   HOW GIVING WORKS - SCOPED MODULE STYLES
+   Exact Figma Design Implementation
+   =================================================== */
+
+.pageWrapper {
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #1F0728;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Common Section Headers */
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #E50046;
+  margin-bottom: 12px;
+}
+
+.sectionBadgeLight {
+  color: #FFA4BC;
+}
+
+.sectionTitle {
+  font-size: 48px;
+  font-weight: 900;
+  color: #1F0728;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+
+.sectionTitleLight {
+  color: #FFFFFF;
+}
+
+.sectionSubtitle {
+  font-size: 17px;
+  color: #554A58;
+  line-height: 1.6;
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.sectionSubtitleLight {
+  color: #E2D9E4;
+}
+
+/* ===================================================
+   1. HERO SECTION
+   =================================================== */
+.heroSection {
+  background: linear-gradient(180deg, #FBF9FB 0%, #FFFFFF 100%);
+  padding: 32px 0 72px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  top: -180px;
+  right: -80px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(229, 0, 70, 0.14) 0%, rgba(229, 0, 70, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left Hero Column */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: #F5F5F7;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.heroPillIcon {
+  width: 14px;
+  height: 14px;
+  color: #E50046;
+}
+
+.heroPillText {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #E50046;
+}
+
+.heroTitle {
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1.05;
+  color: #1F0728;
+  letter-spacing: -0.035em;
+  margin-bottom: 20px;
+}
+
+.heroTitleAccent {
+  color: #E50046;
+}
+
+.heroDescription {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #554A58;
+  max-width: 540px;
+  margin-bottom: 32px;
+}
+
+.heroCtaGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background-color: #E50046;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(229, 0, 70, 0.25);
+}
+
+.primaryBtn:hover {
+  background-color: #C7003C;
+  transform: translateY(-1px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  background-color: #FFFFFF;
+  color: #1F0728;
+  border: 1px solid #F3D0DC;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  border-color: #E50046;
+  background-color: #FFF5F7;
+  color: #E50046;
+}
+
+.heroStatusBadges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #F5F5F7;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1F0728;
+}
+
+.statusPillIcon {
+  width: 15px;
+  height: 15px;
+  color: #1F0728;
+}
+
+/* Right Hero Collage */
+.heroRightCollage {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroImageCardMain {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 370px;
+  height: 378px;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0px 30px 60px 0px rgba(59, 10, 73, 0.18);
+  background-color: #FAF8FA;
+  z-index: 1;
+}
+
+.heroImageCardMain img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroImageCardTopRight {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 242px;
+  height: 248px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0px 24px 50px 0px rgba(59, 10, 73, 0.16);
+  background-color: #FAF8FA;
+  z-index: 2;
+}
+
+.heroImageCardTopRight img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroImageCardBottomRight {
+  position: absolute;
+  right: 60px;
+  bottom: 0;
+  width: 294px;
+  height: 194px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0px 24px 50px 0px rgba(59, 10, 73, 0.16);
+  background-color: #FAF8FA;
+  z-index: 3;
+}
+
+.heroImageCardBottomRight img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroFloatingCard {
+  position: absolute;
+  left: 36px;
+  bottom: 10px;
+  width: 290px;
+  background-color: #1F0728;
+  border-radius: 24px;
+  padding: 16px 20px;
+  box-shadow: 0px 24px 50px 0px rgba(59, 10, 73, 0.30);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.floatingCardIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #E50046 0%, #F97316 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.floatingCardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.floatingCardSubtitle {
+  font-size: 12px;
+  color: #E2D9E4;
+  line-height: 1.4;
+}
+
+/* ===================================================
+   2. OUR APPROACH: DEFINE, VERIFY, REPORT
+   =================================================== */
+.approachSection {
+  background-color: #FFFFFF;
+  padding: 72px 0 80px 0;
+}
+
+.approachGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.approachCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EFEBF0;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(59, 10, 73, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.approachCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(59, 10, 73, 0.08);
+}
+
+.approachImageWrapper {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #FAF8FA;
+}
+
+.approachImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.approachNumberWatermark {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  font-size: 48px;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+  text-shadow: 0px 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.approachBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+.approachHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.approachIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #FFF0F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E50046;
+  flex-shrink: 0;
+}
+
+.approachCardTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1F0728;
+}
+
+.approachCardDescription {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #554A58;
+  flex: 1;
+}
+
+.approachReadMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #E50046;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: gap 0.2s ease;
+}
+
+.approachReadMore:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+/* ===================================================
+   3. SECTION 01 · DEFINE
+   =================================================== */
+.defineSection {
+  background-color: #F8F6F8;
+  padding: 80px 0;
+}
+
+.stepFlowBar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.stepFlowCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EFEBF0;
+  border-radius: 20px;
+  padding: 18px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(59, 10, 73, 0.03);
+}
+
+.stepFlowCardActive {
+  background-color: #1F0728;
+  border-color: #1F0728;
+}
+
+.stepNumberCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #F5F5F7;
+  color: #E50046;
+  font-size: 12px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepNumberCircleActive {
+  background: linear-gradient(135deg, #E50046 0%, #F97316 100%);
+  color: #FFFFFF;
+}
+
+.stepCardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1F0728;
+  line-height: 1.25;
+}
+
+.stepCardTitleActive {
+  color: #FFFFFF;
+}
+
+.stepCardDesc {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #554A58;
+}
+
+.stepCardDescActive {
+  color: #E2D9E4;
+}
+
+.defineSplit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.declarationCard {
+  background-color: #FFFFFF;
+  border: 2px solid #EFEBF0;
+  border-radius: 28px;
+  padding: 28px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.declarationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.declarationTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1F0728;
+}
+
+.declarationBadge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  background-color: #F5F5F7;
+  color: #1F0728;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.declarationText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #554A58;
+}
+
+.parameterGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.parameterCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EFEBF0;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.parameterLabel {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #554A58;
+}
+
+.parameterValue {
+  font-size: 15px;
+  font-weight: 700;
+  color: #EA580C;
+}
+
+.defineRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.defineTeamImage {
+  border-radius: 28px;
+  overflow: hidden;
+  height: 380px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(59, 10, 73, 0.06);
+}
+
+.defineTeamImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.whatGivingIsntCard {
+  background-color: #1F0728;
+  border-radius: 28px;
+  padding: 24px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.isntTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.isntList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.isntItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #F0E8F2;
+}
+
+.isntIcon {
+  width: 16px;
+  height: 16px;
+  color: #FFA4BC;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ===================================================
+   4. SECTION 02 · VERIFY
+   =================================================== */
+.verifySection {
+  background-color: #FFFFFF;
+  padding: 80px 0;
+}
+
+.verifyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.verifyStepCard {
+  position: relative;
+  height: 340px;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 6px 20px rgba(59, 10, 73, 0.08);
+}
+
+.verifyStepBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.verifyStepOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(31, 7, 40, 0) 25%, rgba(31, 7, 40, 0.92) 100%);
+  z-index: 2;
+}
+
+.verifyStepContent {
+  position: relative;
+  z-index: 3;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepTag {
+  display: inline-flex;
+  padding: 4px 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  width: fit-content;
+}
+
+.verifyStepTitle {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.verifyStepDesc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #F0E8F2;
+}
+
+.partnerNoticeBanner {
+  background-color: #F8F6F8;
+  border: 1px solid #E8DFEB;
+  border-radius: 24px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.noticeLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.noticeIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #FFF0F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E50046;
+  flex-shrink: 0;
+}
+
+.noticeTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.noticeHeading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1F0728;
+}
+
+.noticeSub {
+  font-size: 14px;
+  color: #554A58;
+}
+
+.noticeLink {
+  font-size: 15px;
+  font-weight: 800;
+  color: #E50046;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.noticeLink:hover {
+  opacity: 0.8;
+}
+
+/* ===================================================
+   5. SECTION 03 · REPORT (DARK PURPLE)
+   =================================================== */
+.reportSection {
+  background-color: #1F0728;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.reportBgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  pointer-events: none;
+  z-index: 1;
+}
+
+.reportSection .container {
+  position: relative;
+  z-index: 2;
+}
+
+.reportGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.reportCardLeft {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.reportIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFA4BC;
+  margin-bottom: 6px;
+}
+
+.reportCardTitle {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.reportCardSubtitle {
+  font-size: 16px;
+  color: #E2D9E4;
+  line-height: 1.5;
+}
+
+.reportCardRight {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reportIncludesTitle {
+  font-size: 17px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.reportChecklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.checkIcon {
+  width: 16px;
+  height: 16px;
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+/* ===================================================
+   6. STORIES & IMPACT
+   =================================================== */
+.storiesSection {
+  background-color: #FFFFFF;
+  padding: 80px 0;
+}
+
+.storiesGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.storiesCollage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 195px 195px;
+  gap: 16px;
+  min-height: 406px;
+}
+
+.storiesColLeft {
+  grid-row: 1 / 3;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(59, 10, 73, 0.08);
+}
+
+.storiesColLeft img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.storiesColRightTop {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(59, 10, 73, 0.06);
+}
+
+.storiesColRightTop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.storiesColRightBottom {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(59, 10, 73, 0.06);
+}
+
+.storiesColRightBottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.storiesRightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.storiesInfoBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background-color: #F8F6F8;
+  border-radius: 16px;
+  font-size: 15px;
+  color: #1F0728;
+  line-height: 1.4;
+}
+
+.storiesInfoIcon {
+  width: 18px;
+  height: 18px;
+  color: #E50046;
+  flex-shrink: 0;
+}
+
+.storiesDarkBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background-color: #1F0728;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.storiesDarkBtn:hover {
+  background-color: #3B0A49;
+  transform: translateY(-1px);
+}
+
+/* ===================================================
+   7. FAQS & CONTACT FORM SECTION
+   =================================================== */
+.faqsSection {
+  background-color: #F8F6F8;
+  padding: 80px 0;
+}
+
+.faqsGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accordionItem {
+  background-color: #FFFFFF;
+  border: 1px solid #EFEBF0;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.accordionItemOpen {
+  border-color: #F3D0DC;
+  box-shadow: 0 4px 14px rgba(229, 0, 70, 0.05);
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1F0728;
+  gap: 16px;
+}
+
+.accordionToggleBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #F5F5F7;
+  color: #E50046;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.accordionToggleBtnOpen {
+  background-color: #E50046;
+  color: #FFFFFF;
+}
+
+.accordionBody {
+  padding: 0 24px 20px 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #554A58;
+}
+
+/* Contact Form Card */
+.contactCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EFEBF0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0px 24px 60px 0px rgba(59, 10, 73, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.contactAgentImage {
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #FAF8FA;
+}
+
+.contactAgentImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contactCardBody {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contactCardTitle {
+  font-size: 22px;
+  font-weight: 900;
+  color: #1F0728;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1F0728;
+}
+
+.topicPillsGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topicPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1F0728;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topicPillActive {
+  border-color: #E50046;
+  background-color: #FFF5F7;
+  color: #E50046;
+}
+
+.topicRadioDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid #9CA3AF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topicRadioDotActive {
+  border-color: #E50046;
+}
+
+.topicRadioDotInner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #E50046;
+}
+
+.formTextarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1F0728;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.formTextarea:focus {
+  border-color: #E50046;
+}
+
+.formInput {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1F0728;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.formInput:focus {
+  border-color: #E50046;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 52px;
+  border-radius: 9999px;
+  background-color: #E50046;
+  color: #FFFFFF;
+  border: none;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitBtn:hover {
+  background-color: #C7003C;
+  transform: translateY(-1px);
+}
+
+.successMessage {
+  padding: 14px;
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-radius: 14px;
+  color: #065F46;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS
+   =================================================== */
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 52px;
+  }
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .heroRightCollage {
+    min-height: 440px;
+  }
+  .heroImageCardMain {
+    width: 300px;
+    height: 310px;
+  }
+  .heroImageCardTopRight {
+    width: 200px;
+    height: 205px;
+  }
+  .heroImageCardBottomRight {
+    width: 240px;
+    height: 160px;
+  }
+  .approachGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stepFlowBar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .defineSplit {
+    grid-template-columns: 1fr;
+  }
+  .verifyGrid {
+    grid-template-columns: 1fr;
+  }
+  .reportGrid {
+    grid-template-columns: 1fr;
+  }
+  .storiesGrid {
+    grid-template-columns: 1fr;
+  }
+  .faqsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 40px;
+  }
+  .sectionTitle {
+    font-size: 34px;
+  }
+  .approachGrid {
+    grid-template-columns: 1fr;
+  }
+  .stepFlowBar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .parameterGrid {
+    grid-template-columns: 1fr;
+  }
+  .reportChecklist {
+    grid-template-columns: 1fr;
+  }
+  .heroRightCollage {
+    display: none;
+  }
+  .partnerNoticeBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
