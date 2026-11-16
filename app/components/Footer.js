@@ -92,7 +92,7 @@ const NAV_COLUMNS = [
       ["Business Plans", "/business-deals"],
       ["International Calling", "/international-callings"],
       ["Travel & Roaming", "/travel-plans"],
-      ["Check a Destination", "/international-calling-country-list"],
+      ["Check a Destination", "/check-a-destination"],
       ["International Usage Tips", "/international-usage-tips"],
       ["Canada & Mexico Roaming", "/canada-mexico-roaming-plans"],
       ["Partner With Us", "/become-partner"],
