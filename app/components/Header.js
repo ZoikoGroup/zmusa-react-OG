@@ -275,6 +275,14 @@ const Header = () => {
                         <span>Sustainability</span>
                         <ChevronRight size={13} className={styles.chevronArrow} />
                       </Link>
+                      <Link href="/careers" className={styles.linkItem}>
+                        <span>Careers</span>
+                        <ChevronRight size={13} className={styles.chevronArrow} />
+                      </Link>
+                      <Link href="/blog" className={styles.linkItem}>
+                        <span>Blog</span>
+                        <ChevronRight size={13} className={styles.chevronArrow} />
+                      </Link>
                     </div>
                   </div>
 
@@ -298,6 +306,10 @@ const Header = () => {
                       </Link>
                       <Link href="/device-protection" className={styles.linkItem}>
                         <span>Device Protection</span>
+                        <ChevronRight size={13} className={styles.chevronArrow} />
+                      </Link>
+                      <Link href="/customer-service" className={styles.linkItem}>
+                        <span>Customer Service</span>
                         <ChevronRight size={13} className={styles.chevronArrow} />
                       </Link>
                       <Link href="/faq" className={styles.linkItem}>
@@ -542,8 +554,8 @@ const Header = () => {
                         <span className={styles.colHeaderTitle}>Shop Devices</span>
                       </div>
                       <div className={styles.linkList}>
-                        <Link href="https://phones.zoikomobile.com" target="_blank" className={styles.linkItem}>
-                          <span>New Smartphones</span>
+                        <Link href="/shop-phones" className={styles.linkItem}>
+                          <span>Shop Smartphones</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
                         <Link href="/product-category/refurbished" className={styles.linkItem}>
@@ -575,7 +587,7 @@ const Header = () => {
                           <span>Bring Your Own Phone</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/byod-plans" className={styles.linkItem}>
+                        <Link href="/check-compatibility" className={styles.linkItem}>
                           <span>Check Compatibility</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -591,8 +603,8 @@ const Header = () => {
                           <span>Device Protection</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/support" className={styles.linkItem}>
-                          <span>Phone Unlock Help</span>
+                        <Link href="/how-to-activate-sim" className={styles.linkItem}>
+                          <span>How to Activate SIM</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
                       </div>
@@ -604,7 +616,7 @@ const Header = () => {
                         <span className={styles.colHeaderTitle}>Shop by Need</span>
                       </div>
                       <div className={styles.linkList}>
-                        <Link href="https://phones.zoikomobile.com" target="_blank" className={styles.linkItem}>
+                        <Link href="/shop-phones" className={styles.linkItem}>
                           <span>Browse All Smartphones</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -612,11 +624,11 @@ const Header = () => {
                           <span>Phones Under $300</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="https://phones.zoikomobile.com" target="_blank" className={styles.linkItem}>
+                        <Link href="/shop-phones" className={styles.linkItem}>
                           <span>Phones for Families</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/contact-us" className={styles.linkItem}>
+                        <Link href="/trade-in-options" className={styles.linkItem}>
                           <span>Trade-In Options</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -636,7 +648,7 @@ const Header = () => {
                           </div>
                         </div>
                         <div className={styles.promoActionArea}>
-                          <Link href="https://phones.zoikomobile.com" target="_blank" className={styles.promoBtn}>
+                          <Link href="/shop-phones" className={styles.promoBtn}>
                             Shop Phones ›
                           </Link>
                         </div>
@@ -666,7 +678,7 @@ const Header = () => {
                         <span className={styles.colHeaderTitle}>Start Here</span>
                       </div>
                       <div className={styles.linkList}>
-                        <Link href="/byod-plans" className={styles.linkItem}>
+                        <Link href="/check-compatibility" className={styles.linkItem}>
                           <span>Check Compatibility</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -682,7 +694,7 @@ const Header = () => {
                           <span>SIM or eSIM</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/support" className={styles.linkItem}>
+                        <Link href="/phone-unlock-help" className={styles.linkItem}>
                           <span>Unlock Your Phone</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -759,7 +771,7 @@ const Header = () => {
                           </div>
                         </div>
                         <div className={styles.promoActionArea}>
-                          <Link href="/byod-plans" className={styles.promoBtn}>
+                          <Link href="/check-compatibility" className={styles.promoBtn}>
                             Check Compatibility ›
                           </Link>
                         </div>
@@ -798,7 +810,7 @@ const Header = () => {
                           <span>Compare Business Plans</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/business-deals" className={styles.linkItem}>
+                        <Link href="/multi-line-options" className={styles.linkItem}>
                           <span>Multi-Line Options</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -826,7 +838,7 @@ const Header = () => {
                           <span>Add or Change Lines</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/business-deals" className={styles.linkItem}>
+                        <Link href="/shop-phones" className={styles.linkItem}>
                           <span>Business Devices</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -834,7 +846,7 @@ const Header = () => {
                           <span>Account &amp; Billing Support</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/support" className={styles.linkItem}>
+                        <Link href="/customer-service" className={styles.linkItem}>
                           <span>Dedicated Support</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -982,11 +994,11 @@ const Header = () => {
                         <span className={styles.colHeaderTitle}>Before You Go</span>
                       </div>
                       <div className={styles.linkList}>
-                        <Link href="/roaming-rates" className={styles.linkItem}>
+                        <Link href="/international-calling-country-list" className={styles.linkItem}>
                           <span>Check a Destination</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/byod-plans" className={styles.linkItem}>
+                        <Link href="/check-compatibility" className={styles.linkItem}>
                           <span>Device Compatibility</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -994,7 +1006,7 @@ const Header = () => {
                           <span>Travel Support</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/support" className={styles.linkItem}>
+                        <Link href="/international-usage-tips" className={styles.linkItem}>
                           <span>International Usage Tips</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -1057,11 +1069,15 @@ const Header = () => {
                           <span>Charity Partnerships</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/animal-charities" className={styles.linkItem}>
+                        <Link href="/get-involved" className={styles.linkItem}>
+                          <span>Get Involved</span>
+                          <ChevronRight size={13} className={styles.chevronArrow} />
+                        </Link>
+                        <Link href="/how-giving-works" className={styles.linkItem}>
                           <span>How Giving Works</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/animal-music-channel" className={styles.linkItem}>
+                        <Link href="/stories-and-impact" className={styles.linkItem}>
                           <span>Stories &amp; Impact</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -1089,7 +1105,7 @@ const Header = () => {
                           <span>Music Perks</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
-                        <Link href="/music-events-perk" className={styles.linkItem}>
+                        <Link href="/events-and-experiences" className={styles.linkItem}>
                           <span>Events &amp; Experiences</span>
                           <ChevronRight size={13} className={styles.chevronArrow} />
                         </Link>
@@ -1140,7 +1156,7 @@ const Header = () => {
                           </div>
                         </div>
                         <div className={styles.promoActionArea}>
-                          <Link href="/animal-charities" className={styles.promoBtn}>
+                          <Link href="/explore-community" className={styles.promoBtn}>
                             Explore Community ›
                           </Link>
                         </div>
@@ -1328,13 +1344,15 @@ const Header = () => {
                   marginBottom: "20px",
                 }}
               >
-                <Image
-                  src="/img/ZoikoMobileUS_Logo_PNG.png"
-                  alt="Zoiko Mobile Logo"
-                  width={140}
-                  height={50}
-                  style={{ objectFit: "contain" }}
-                />
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                  <Image
+                    src="/img/ZoikoMobileUS_Logo_PNG.png"
+                    alt="Zoiko Mobile Logo"
+                    width={140}
+                    height={50}
+                    style={{ objectFit: "contain" }}
+                  />
+                </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="zk-icon-btn"
@@ -1364,7 +1382,7 @@ const Header = () => {
                   Plans &amp; Pricing
                 </Link>
                 <Link
-                  href="/product-category/refurbished"
+                  href="/shop-phones"
                   onClick={() => setMobileMenuOpen(false)}
                   style={{ color: "#1A1A1A", padding: "8px 0" }}
                 >
@@ -1376,6 +1394,13 @@ const Header = () => {
                   style={{ color: "#1A1A1A", padding: "8px 0" }}
                 >
                   Bring Your Phone
+                </Link>
+                <Link
+                  href="/check-compatibility"
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ color: "#1A1A1A", padding: "8px 0" }}
+                >
+                  Check Compatibility
                 </Link>
                 <Link
                   href="/business-deals"
@@ -1392,11 +1417,25 @@ const Header = () => {
                   International
                 </Link>
                 <Link
-                  href="/college-student"
+                  href="/explore-community"
                   onClick={() => setMobileMenuOpen(false)}
                   style={{ color: "#1A1A1A", padding: "8px 0" }}
                 >
-                  Community Plans
+                  Animal &amp; Music Community
+                </Link>
+                <Link
+                  href="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ color: "#1A1A1A", padding: "8px 0" }}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/careers"
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ color: "#1A1A1A", padding: "8px 0" }}
+                >
+                  Careers
                 </Link>
                 <Link
                   href="/support"
