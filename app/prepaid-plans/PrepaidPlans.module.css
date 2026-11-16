@@ -1,0 +1,2143 @@
+/* =========================================================
+   PREPAID PLANS - MODULE CSS
+   ========================================================= */
+
+.pageWrapper {
+  background-color: #FAF8FC;
+  color: #230B38;
+  font-family: inherit;
+  overflow-x: hidden;
+  padding-bottom: 70px;
+}
+
+/* Base desktop/mobile isolation */
+.desktopOnly {
+  display: block;
+}
+
+.mobileOnly {
+  display: none !important;
+}
+
+/* =========================================================
+   HERO BANNER
+   ========================================================= */
+
+.heroSection {
+  background: linear-gradient(135deg, #021235 0%, #06215C 50%, #031542 100%);
+  padding: 44px 0 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContainer {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroEyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #7CA1EE;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.heroTitle {
+  font-size: 50px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 6px 0;
+}
+
+.heroTagline {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 14px 0;
+  font-style: italic;
+}
+
+.heroNetworkBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.heroSparkleIcon {
+  color: #F43F5E;
+  font-size: 14px;
+}
+
+.heroMusicIcon {
+  color: #F59E0B;
+  font-size: 16px;
+}
+
+.heroNetworkText {
+  letter-spacing: -0.01em;
+}
+
+.heroDescription {
+  font-size: 14px;
+  color: #BDCDEE;
+  margin: 0 0 18px 0;
+  max-width: 480px;
+}
+
+.heroHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #D1E0FA;
+}
+
+.checkIcon {
+  color: #38BDF8;
+  flex-shrink: 0;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btnComparePrepaid {
+  background-color: #E5195E;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(229, 25, 94, 0.35);
+  transition: all 0.15s ease;
+}
+
+.btnComparePrepaid:hover {
+  background-color: #D01452;
+  transform: translateY(-1px);
+}
+
+.btnBringPhone {
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.btnBringPhone:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   CATEGORY TABS SECTION
+   ========================================================= */
+
+.tabsSection {
+  margin-top: -26px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 34px;
+}
+
+.tabsContainer {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.tabsCard {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 6px;
+  display: inline-flex;
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ECE6F2;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  padding: 9px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #230B38;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.tabBtn:hover {
+  color: #E5195E;
+}
+
+.tabBtnActive {
+  background-color: #E5195E;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(229, 25, 94, 0.25);
+}
+
+.mobileTabsCard {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ECE6F2;
+}
+
+.mobileTabBtn {
+  background: #FFFFFF;
+  border: 1px solid #EBE4F0;
+  border-radius: 12px;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #230B38;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.mobileTabBtn svg {
+  color: #230B38;
+  flex-shrink: 0;
+}
+
+.mobileTabBtnActive {
+  background-color: #E5195E;
+  color: #FFFFFF !important;
+  border-color: #E5195E;
+  box-shadow: 0 3px 10px rgba(229, 25, 94, 0.3);
+}
+
+.mobileTabBtnActive svg {
+  color: #FFFFFF;
+}
+
+/* =========================================================
+   PLANS GRID SECTION
+   ========================================================= */
+
+.plansSection {
+  padding-bottom: 60px;
+}
+
+.sectionContainer {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.standardPlansGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.widePlansGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.planCard {
+  background: #FFFFFF;
+  border: 1px solid #ECE6F2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(35, 11, 56, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(35, 11, 56, 0.09);
+}
+
+.planCardWide {
+  background: #FFFFFF;
+  border: 1px solid #ECE6F2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(35, 11, 56, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.planCardWide:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(35, 11, 56, 0.09);
+}
+
+.cardHeaderImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+}
+
+.cardHeaderImgWrapperWide {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.cardHeaderImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.planNameBanner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 6px 18px;
+  border-top-right-radius: 10px;
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.cardBody {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #F3EDF6;
+  padding-bottom: 12px;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+.priceValue {
+  font-size: 32px;
+  font-weight: 800;
+  color: #230B38;
+  letter-spacing: -0.03em;
+}
+
+.pricePeriod {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #645A73;
+  margin-left: 2px;
+}
+
+.planTagline {
+  font-size: 11px;
+  color: #5A5265;
+  line-height: 1.35;
+  margin: 0;
+  flex: 1;
+}
+
+.cardPriceRowWide {
+  margin-bottom: 8px;
+}
+
+.planTaglineWide {
+  font-size: 11.5px;
+  color: #5A5265;
+  line-height: 1.35;
+  margin: 4px 0 12px 0;
+}
+
+/* Wide Cards 2-Column Body */
+.cardBodyWide {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 20px;
+  padding: 18px;
+}
+
+.cardBodyWideLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #F3EDF6;
+  padding-right: 18px;
+}
+
+.cardBodyWideRight {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Features List */
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #230B38;
+  line-height: 1.35;
+}
+
+.featureItem svg {
+  color: var(--plan-color, #E5195E);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.featureIconData {
+  color: #F97316;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.featureIconTalk {
+  color: #EC4899;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.featureIconHotspot {
+  color: #8B5CF6;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.featureIconGlobe {
+  color: #06B6D4;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.featureIconSim {
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.linkUnderline {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #D97706;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.cardUtilityRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 11.5px;
+  color: #645A73;
+}
+
+.compareCheckboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 11.5px;
+  color: #230B38;
+}
+
+.checkboxInput {
+  accent-color: #E5195E;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.broadbandFactsLink {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #230B38;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.broadbandFactsLink:hover {
+  color: #E5195E;
+}
+
+.cardActionButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btnViewDetails {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid #E5195E;
+  color: #E5195E;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  font-family: inherit;
+}
+
+.btnViewDetails:hover {
+  background-color: #FDF2F7;
+}
+
+.btnChoosePlan {
+  width: 100%;
+  background-color: #E5195E;
+  border: none;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 9px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(229, 25, 94, 0.25);
+}
+
+.btnChoosePlan:hover {
+  background-color: #D01452;
+}
+
+.pricingDisclaimer {
+  font-size: 10.5px;
+  color: #7A6E8A;
+  line-height: 1.45;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   DECISION TOOLS: ZOIKO PLAN FIT & MY USAGE, MY PLAN
+   ========================================================= */
+
+.decisionToolsSection {
+  padding: 0 0 54px 0;
+  background-color: #FAF8FC;
+}
+
+.decisionToolsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.planFitCard {
+  background-color: #FAF4F8;
+  border: 1px solid #F0E8F2;
+  border-radius: 22px;
+  padding: 24px 26px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 4px 16px rgba(35, 11, 56, 0.03);
+}
+
+.planFitGraphicWrapper {
+  width: 125px;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.planFitPhoneImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.myUsageCard {
+  background-color: #F1FBF5;
+  border: 1px solid #E1F2E8;
+  border-radius: 22px;
+  padding: 24px 26px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 4px 16px rgba(35, 11, 56, 0.03);
+}
+
+.usageWidgetBox {
+  width: 140px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  border: 1px solid #E2F0E7;
+  border-radius: 14px;
+  padding: 14px 14px;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.04);
+}
+
+.usageWidgetTitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: #1F2937;
+  margin-bottom: 2px;
+}
+
+.usageWidgetSubtitle {
+  font-size: 9.5px;
+  color: #6B7280;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.usageWidgetRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 10.5px;
+  color: #374151;
+}
+
+.usageLabel {
+  font-weight: 700;
+  width: 26px;
+}
+
+.usageBar {
+  flex: 1;
+  height: 4px;
+  background-color: #E5E7EB;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.usageBarFill {
+  display: block;
+  width: 20%;
+  height: 100%;
+  background-color: #10B981;
+  border-radius: 9999px;
+}
+
+.usageDash {
+  font-weight: 700;
+  color: #9CA3AF;
+}
+
+.toolCardContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.planFitHeading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #E5195E;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.015em;
+}
+
+.myUsageHeading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #16A34A;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.015em;
+}
+
+.toolCardSubtitle {
+  font-size: 12px;
+  color: #5A5265;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+}
+
+.toolPointsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.toolPointItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 11.5px;
+  color: #230B38;
+  line-height: 1.35;
+}
+
+.checkCirclePink {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid #E5195E;
+  color: #E5195E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.checkCircleGreen {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid #16A34A;
+  color: #16A34A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.btnFindPlan,
+.btnSignInReview {
+  background-color: #E5195E;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  box-shadow: 0 2px 8px rgba(229, 25, 94, 0.25);
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btnFindPlan:hover,
+.btnSignInReview:hover {
+  background-color: #D01452;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PREPAID, EXPLAINED SECTION
+   ========================================================= */
+
+.prepaidExplainedSection {
+  background-color: #FAF5F9;
+  border-top: 1px solid #F0E8F4;
+  border-bottom: 1px solid #F0E8F4;
+  padding: 64px 0 76px 0;
+}
+
+.explainedGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.explainedContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.explainedEyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #E5195E;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.explainedTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #230B38;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+}
+
+.explainedSubtitle {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #5A5265;
+  margin: 0 0 28px 0;
+  max-width: 480px;
+}
+
+.explainedFeatureCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.explainedCard {
+  background-color: #FFFFFF;
+  border: 1px solid #ECE6F2;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 8px rgba(35, 11, 56, 0.02);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.explainedCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(35, 11, 56, 0.06);
+}
+
+.explainedCardIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #FDF2F7;
+  color: #E5195E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.explainedCardTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #230B38;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.explainedCardDesc {
+  font-size: 11.5px;
+  color: #5A5265;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.explainedMediaWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.explainedPhotoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  line-height: 0;
+}
+
+.explainedCoupleImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.confirmBadgeCard {
+  position: relative;
+  margin-top: -36px;
+  background-color: #FFFFFF;
+  border: 1px solid #ECE6F2;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 28px rgba(35, 11, 56, 0.09);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 440px;
+  z-index: 2;
+}
+
+.confirmShieldIcon {
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.confirmCardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmTitle {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #230B38;
+  margin: 0 0 3px 0;
+  line-height: 1.3;
+}
+
+.confirmSubtitle {
+  font-size: 11px;
+  color: #645A73;
+  line-height: 1.38;
+  margin: 0;
+}
+
+/* =========================================================
+   THREE QUICK CHECKS BEFORE YOU CHOOSE
+   ========================================================= */
+
+.quickChecksSection {
+  background-color: #FFFFFF;
+  padding: 72px 0 60px 0;
+}
+
+.quickChecksHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.quickChecksEyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  color: #E5195E;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.quickChecksTitle {
+  font-size: 34px;
+  font-weight: 800;
+  color: #230B38;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.quickChecksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.quickCheckCard {
+  background-color: #FFFFFF;
+  border: 1px solid #ECE6F2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(35, 11, 56, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quickCheckCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(35, 11, 56, 0.08);
+}
+
+.quickCheckImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+}
+
+.quickCheckImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.quickCheckBody {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.quickCheckCardTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #230B38;
+  margin: 0 0 6px 0;
+}
+
+.quickCheckCardDesc {
+  font-size: 12px;
+  color: #5A5265;
+  line-height: 1.45;
+  margin: 0 0 12px 0;
+  flex: 1;
+}
+
+.quickCheckLink {
+  color: #E5195E;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease;
+}
+
+.quickCheckLink:hover {
+  color: #D01452;
+}
+
+.alertWarningPill {
+  background-color: #FFFDF5;
+  border: 1.5px solid #FDE68A;
+  border-radius: 9999px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #92400E;
+  margin: 0 auto 36px auto;
+  max-width: 860px;
+  box-shadow: 0 2px 6px rgba(180, 83, 9, 0.04);
+}
+
+.alertWarningIcon {
+  color: #D97706;
+  flex-shrink: 0;
+}
+
+.featurePillarsStrip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid #ECE6F2;
+  border-bottom: 1px solid #ECE6F2;
+  padding: 16px 0;
+  margin-top: 10px;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0 16px;
+  border-right: 1px solid #ECE6F2;
+}
+
+.pillarItem:last-child {
+  border-right: none;
+}
+
+.pillarIconBox {
+  color: #E5195E;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pillarText {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarTitle {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #230B38;
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+}
+
+.pillarDesc {
+  font-size: 10.5px;
+  color: #645A73;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   PREPAID QUESTIONS, ANSWERED (FAQS)
+   ========================================================= */
+
+.faqsSection {
+  background-color: #FAF5F9;
+  border-top: 1px solid #F0E8F4;
+  padding: 64px 0 90px 0;
+}
+
+.faqsHeader {
+  margin-bottom: 28px;
+}
+
+.faqsEyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  color: #E5195E;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.faqsTitle {
+  font-size: 34px;
+  font-weight: 800;
+  color: #230B38;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.faqsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.supportCard {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(35, 11, 56, 0.06);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ECE6F2;
+}
+
+.supportImgWrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.supportImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.supportCallBox {
+  background-color: #210931;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.supportCallTitle {
+  color: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+
+.supportCallSubtitle {
+  color: #C4B5D4;
+  font-size: 11.5px;
+  line-height: 1.4;
+  margin: 0 0 14px 0;
+}
+
+.supportPhoneBtn {
+  background-color: #FFFFFF;
+  color: #230B38;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: all 0.15s ease;
+}
+
+.supportPhoneBtn:hover {
+  background-color: #FAF5F9;
+}
+
+.supportPhoneIcon {
+  color: #E5195E;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accordionItem {
+  background-color: #FFFFFF;
+  border: 1px solid #ECE6F2;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accordionItemOpen {
+  border-color: #E5195E;
+  box-shadow: 0 4px 14px rgba(229, 25, 94, 0.08);
+}
+
+.accordionHeader {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  gap: 14px;
+  font-family: inherit;
+}
+
+.accordionQuestion {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #230B38;
+  line-height: 1.3;
+}
+
+.accordionIconCircle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.accordionIconMinus {
+  background-color: #E5195E;
+  color: #FFFFFF;
+}
+
+.accordionIconPlus {
+  background-color: #FAF6FB;
+  color: #E5195E;
+}
+
+.accordionBody {
+  padding: 0 20px 16px 20px;
+}
+
+.accordionAnswer {
+  font-size: 12.5px;
+  color: #5A5265;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =========================================================
+   STICKY BOTTOM COMPARE PLANS BAR
+   ========================================================= */
+
+.compareBarFixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #110B22;
+  z-index: 100;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+  padding: 11px 0;
+}
+
+.compareBarContainer {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.compareBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compareIconBox {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.compareTitle {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.compareSubtitle {
+  color: #BBA9CF;
+  font-size: 11.5px;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.btnCompareSelected {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btnCompareSelectedActive {
+  background-color: #E5195E;
+  border-color: #E5195E;
+  box-shadow: 0 2px 8px rgba(229, 25, 94, 0.35);
+}
+
+/* =========================================================
+   BROADBAND FACTS MODAL
+   ========================================================= */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 11, 34, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modalContent {
+  background: #FFFFFF;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalHeader {
+  padding: 18px 22px;
+  border-bottom: 1px solid #ECE6F2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #230B38;
+  margin: 0;
+}
+
+.modalBadge {
+  padding: 3px 10px;
+  border-radius: 9999px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #7A6E8A;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modalBody {
+  padding: 20px 22px;
+}
+
+.modalPriceBlock {
+  background: #FAF8FC;
+  border: 1px solid #ECE6F2;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+
+.modalPrice {
+  font-size: 28px;
+  font-weight: 800;
+  color: #230B38;
+}
+
+.modalPeriod {
+  font-size: 13px;
+  font-weight: 600;
+  color: #645A73;
+}
+
+.modalMonthlyDesc {
+  font-size: 11px;
+  color: #645A73;
+  margin-top: 4px;
+}
+
+.modalSpecsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+  color: #230B38;
+}
+
+.modalSpecItem {
+  line-height: 1.4;
+}
+
+.modalFooter {
+  padding: 14px 22px;
+  border-top: 1px solid #ECE6F2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btnModalClose {
+  background: transparent;
+  border: 1.5px solid #E2DBE9;
+  color: #230B38;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.btnModalChoose {
+  background-color: #E5195E;
+  border: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   RESPONSIVE / MOBILE MEDIA QUERIES (max-width: 768px)
+   Strictly isolated to mobile screens: desktop layout unaffected!
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none !important;
+  }
+
+  .mobileOnly {
+    display: block !important;
+  }
+
+  .mobileTabsCard.mobileOnly {
+    display: grid !important;
+  }
+
+  /* Hero Mobile Layout */
+  .heroSection {
+    background: linear-gradient(180deg, rgba(2, 18, 53, 0.72) 0%, rgba(3, 21, 66, 0.95) 100%),
+                url('/img/Prepaid-Plans/pp1.png') top right / cover no-repeat;
+    padding: 34px 0 54px 0;
+  }
+
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 16px;
+  }
+
+  .heroImageWrapper {
+    display: none !important;
+  }
+
+  .heroEyebrow {
+    display: none !important;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+    line-height: 1.05;
+    margin-bottom: 8px;
+    letter-spacing: -0.025em;
+  }
+
+  .heroTagline {
+    font-size: 19px;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .heroNetworkBadge {
+    font-size: 13px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .heroDescription {
+    font-size: 13.5px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+    max-width: 100%;
+    color: #BDCDEE;
+  }
+
+  .heroHighlights {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .highlightItem {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .highlightItem .checkIcon {
+    color: #22C55E !important;
+  }
+
+  .heroActions {
+    width: 100%;
+  }
+
+  .btnComparePrepaid {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+
+  .btnBringPhone {
+    display: none !important;
+  }
+
+  /* Tabs Mobile Styling */
+  .tabsSection {
+    margin-top: -28px;
+    margin-bottom: 28px;
+  }
+
+  .tabsContainer {
+    padding: 0 16px;
+  }
+
+  /* Standard & Wide Plans Mobile Cards */
+  .standardPlansGrid,
+  .widePlansGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .cardHeaderImgWrapper,
+  .cardHeaderImgWrapperWide {
+    height: auto !important;
+    position: relative !important;
+    background: transparent !important;
+  }
+
+  .cardHeaderImg {
+    display: none !important;
+  }
+
+  .planNameBanner {
+    position: static !important;
+    display: inline-block !important;
+    border-radius: 0 0 12px 0 !important;
+    padding: 7px 18px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+  }
+
+  .cardBody {
+    padding: 16px 16px 18px 16px;
+  }
+
+  .cardBodyWide {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    padding: 16px 16px 18px 16px !important;
+  }
+
+  .cardBodyWideLeft {
+    border-right: none !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .cardPriceRowWide {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 12px !important;
+    border-bottom: 1px solid #F3EDF6 !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .planTaglineWide {
+    margin: 0 !important;
+    font-size: 11px !important;
+    flex: 1 !important;
+  }
+
+  .cardUtilityRow {
+    margin-bottom: 12px;
+  }
+
+  .cardActionButtons {
+    margin-bottom: 14px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .pricingDisclaimer {
+    font-size: 10.5px;
+    line-height: 1.4;
+    padding: 16px 0;
+    color: #7B7287;
+  }
+
+  .sectionContainer {
+    padding: 0 16px;
+  }
+
+  /* Decision Tools */
+  .decisionToolsSection {
+    padding: 30px 0 40px 0;
+  }
+
+  .decisionToolsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .planFitCard {
+    padding: 16px 14px;
+    gap: 14px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+  }
+
+  .planFitGraphicWrapper {
+    width: 95px;
+    flex-shrink: 0;
+  }
+
+  .planFitPhoneImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .planFitHeading {
+    font-size: 19px;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+
+  .myUsageCard {
+    padding: 16px 14px;
+    gap: 14px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+  }
+
+  .usageWidgetBox {
+    width: 105px;
+    flex-shrink: 0;
+    padding: 10px 8px;
+    border-radius: 12px;
+  }
+
+  .usageWidgetTitle {
+    font-size: 10px;
+    margin-bottom: 1px;
+  }
+
+  .usageWidgetSubtitle {
+    font-size: 8px;
+    margin-bottom: 8px;
+  }
+
+  .usageWidgetRow {
+    font-size: 9px;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .usageBar {
+    height: 3px;
+  }
+
+  .myUsageHeading {
+    font-size: 19px;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+
+  .toolCardSubtitle {
+    font-size: 11px;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+
+  .toolPointsList {
+    gap: 7px;
+    margin-bottom: 12px;
+  }
+
+  .toolPointItem {
+    font-size: 10px;
+    line-height: 1.3;
+    gap: 6px;
+  }
+
+  .checkCirclePink,
+  .checkCircleGreen {
+    width: 14px;
+    height: 14px;
+  }
+
+  .btnFindPlan,
+  .btnSignInReview {
+    font-size: 11.5px;
+    padding: 7px 16px;
+  }
+
+  /* Prepaid Explained */
+  .prepaidExplainedSection {
+    padding: 38px 0 46px 0;
+  }
+
+  .explainedGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .explainedEyebrow {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .explainedTitle {
+    font-size: 26px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .explainedSubtitle {
+    font-size: 12.5px;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+
+  .explainedFeatureCardsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .explainedCard {
+    padding: 12px 10px;
+    border-radius: 14px;
+  }
+
+  .explainedCardIcon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .explainedCardTitle {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .explainedCardDesc {
+    font-size: 9.5px;
+    line-height: 1.35;
+  }
+
+  .explainedMediaWrapper {
+    width: 100%;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .explainedPhotoContainer {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .explainedCoupleImg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+  }
+
+  .confirmBadgeCard {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: 12px !important;
+    margin: 0 !important;
+    max-width: none !important;
+    border-radius: 14px !important;
+    padding: 12px 12px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.14) !important;
+  }
+
+  .confirmTitle {
+    font-size: 11.5px !important;
+  }
+
+  .confirmDesc {
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Quick Checks */
+  .quickChecksSection {
+    padding: 38px 0 34px 0;
+  }
+
+  .quickChecksHeader {
+    margin-bottom: 22px;
+  }
+
+  .quickChecksTitle {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .quickChecksGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .quickCheckCard {
+    border-radius: 18px;
+  }
+
+  .quickCheckImgWrapper {
+    height: 185px;
+  }
+
+  .quickCheckBody {
+    padding: 16px 18px;
+  }
+
+  .alertWarningPill {
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 11px;
+    margin-bottom: 24px;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 8px;
+  }
+
+  .featurePillarsStrip {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 18px 0 !important;
+    border-top: 1px solid #ECE6F2;
+    border-bottom: 1px solid #ECE6F2;
+  }
+
+  .pillarItem {
+    padding: 0 !important;
+    border-right: none !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .pillarIconBox {
+    color: #E5195E !important;
+    font-size: 16px !important;
+  }
+
+  .pillarTitle {
+    font-size: 12.5px;
+    margin-bottom: 2px;
+  }
+
+  .pillarDesc {
+    font-size: 10.5px;
+  }
+
+  /* FAQ */
+  .faqsSection {
+    padding: 38px 0 54px 0;
+  }
+
+  .faqsHeader {
+    margin-bottom: 20px;
+  }
+
+  .faqsTitle {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .faqsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .supportCard {
+    border-radius: 18px;
+  }
+
+  .supportImgWrapper {
+    height: 220px;
+  }
+
+  .supportCallBox {
+    padding: 18px 18px;
+  }
+
+  .supportCallTitle {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .supportCallSubtitle {
+    font-size: 11.5px;
+    margin-bottom: 14px;
+  }
+
+  .supportPhoneBtn {
+    font-size: 12.5px;
+    padding: 9px 20px;
+  }
+
+  .accordionContainer {
+    gap: 10px;
+  }
+
+  .accordionHeader {
+    padding: 14px 16px;
+  }
+
+  .accordionQuestion {
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .accordionIconCircle {
+    width: 24px;
+    height: 24px;
+  }
+
+  .accordionBody {
+    padding: 0 16px 14px 16px;
+  }
+
+  .accordionAnswer {
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+
+  /* Compare Bar on Mobile */
+  .compareBarFixed {
+    padding: 12px 16px 14px 16px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+
+  .compareBarContainer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  .compareBarLeft {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .compareSubtitle {
+    text-align: left !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    color: #CBBBDC !important;
+    margin: 0 !important;
+  }
+
+  .btnCompareSelected {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 16px !important;
+    margin-top: 4px !important;
+  }
+}
