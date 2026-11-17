@@ -21,6 +21,7 @@ import { processOrderStripe } from "../utils/beQuickStripeWebPaymentApi";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import StripePaymentForm from "../components/StripePaymentForm";
+import EmptyCart from "./EmptyCart";
 
 // ─── STEP 2: Set your activation fee amount here ───────────────────────────
 const ACTIVATION_FEE_PER_ESIM = 13.99;
@@ -747,66 +748,7 @@ export default function CheckoutPage() {
 
       <div className="container my-5">
         {cart.length === 0 ? (
-          <div
-            className="d-flex flex-column justify-content-center align-items-center text-center"
-            style={{ minHeight: "60vh" }}
-          >
-            <img
-              src="/img/empty-cart.png"
-              alt="Empty Cart"
-              style={{ width: "180px", opacity: 0.8 }}
-              onError={(e) => (e.target.style.display = "none")}
-            />
-            <h3 className="mt-3 text-secondary">Your cart is empty</h3>
-            <p className="text-muted">
-              Looks like you haven't added anything to your cart yet.
-            </p>
-
-            <Container className="py-4">
-              <Row className="g-3">
-                <Col md={3} sm={6} xs={12}>
-                  <Button
-                    className="w-100 py-3 fw-semibold rounded-3 border-0 text-white"
-                    style={{ background: "#DF1E5A" }}
-                    href="/prepaid-plans"
-                  >
-                    <Phone className="me-2" />
-                    Prepaid plans
-                  </Button>
-                </Col>
-                <Col md={3} sm={6} xs={12}>
-                  <Button
-                    className="w-100 py-3 fw-semibold rounded-3 border-0 text-white"
-                    style={{ background: "#DF1E5A" }}
-                    href="/postpaid-plans"
-                  >
-                    <PhoneFill className="me-2" />
-                    Postpaid plans
-                  </Button>
-                </Col>
-                <Col md={3} sm={6} xs={12}>
-                  <Button
-                    className="w-100 py-3 fw-semibold rounded-3 border-0 text-white"
-                    style={{ background: "#DF1E5A" }}
-                    href="/business-deals"
-                  >
-                    <PhoneVibrate className="me-2" />
-                    Business Deals
-                  </Button>
-                </Col>
-                <Col md={3} sm={6} xs={12}>
-                  <Button
-                    className="w-100 py-3 fw-semibold rounded-3 border-0 text-white"
-                    style={{ background: "#DF1E5A" }}
-                    href="/travel-plans"
-                  >
-                    <PhoneLandscape className="me-2" />
-                    Travel Plans
-                  </Button>
-                </Col>
-              </Row>
-            </Container>
-          </div>
+          <EmptyCart />
         ) : (
           <>
             <style>{`

@@ -1,0 +1,252 @@
+/* =========================================================
+   CHECKOUT – EMPTY CART STATE
+   ========================================================= */
+
+/* Rendered inside Bootstrap's ".container.my-5": break out to full width
+   and cancel the vertical margins so the background reaches header/footer. */
+.page {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -3rem;
+  margin-bottom: -3rem;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(230, 210, 245, 0.55) 0%, rgba(255, 255, 255, 0) 45%),
+    radial-gradient(circle at 88% 30%, rgba(255, 220, 236, 0.6) 0%, rgba(255, 255, 255, 0) 45%),
+    #fbf7fc;
+  color: #1c1238;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 36px 24px 40px;
+}
+
+.emptyHero {
+  text-align: center;
+}
+
+.cartArt {
+  width: 300px;
+  max-width: 75%;
+  height: auto;
+  display: block;
+  margin: 0 auto 28px;
+  /* Blend the image's white backdrop into the page background. */
+  mix-blend-mode: multiply;
+}
+
+.title {
+  font-size: 58px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: #1c1238;
+  margin: 0 0 22px;
+}
+
+.titleAccent {
+  background: linear-gradient(90deg, #e6155f 0%, #c21875 60%, #9b2aa8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 22px;
+  line-height: 1.5;
+  color: #3a3350;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* ---------- Shop cards ---------- */
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 48px 0 0;
+}
+
+.shopCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 36px 26px;
+  background: #fff;
+  border: 1px solid #f1e8f3;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(90, 30, 110, 0.07);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.shopCard:hover {
+  transform: translateY(-4px);
+  border-color: #f4c6da;
+  box-shadow: 0 16px 36px rgba(230, 21, 95, 0.12);
+  color: inherit;
+}
+
+.shopIcon {
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pink { background: #fde8ef; color: #e6155f; }
+.purple { background: #eee8fd; color: #6c3ce0; }
+.green { background: #e3f6ec; color: #1f9d5c; }
+.blue { background: #e6eefd; color: #2f6fe0; }
+
+.shopText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.shopTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c1238;
+  margin-bottom: 4px;
+}
+
+.shopDesc {
+  font-size: 14px;
+  line-height: 1.35;
+  color: #6b6580;
+}
+
+.shopArrow {
+  flex-shrink: 0;
+  color: #1c1238;
+  transition: transform 0.2s ease;
+}
+
+.shopCard:hover .shopArrow {
+  transform: translateX(3px);
+  color: #e6155f;
+}
+
+/* ---------- Why choose ---------- */
+
+.whyHead {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 64px 0 34px;
+}
+
+.whyLineLeft,
+.whyLineRight {
+  flex: 1;
+  height: 2px;
+}
+
+.whyLineLeft {
+  background: linear-gradient(90deg, rgba(200, 180, 225, 0) 0%, #e3d6ef 100%);
+}
+
+.whyLineRight {
+  background: linear-gradient(90deg, #5b3fa8 0%, rgba(200, 180, 225, 0.2) 100%);
+}
+
+.whyTitle {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #3b1c7a;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.whyItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 8px 24px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1c1238;
+}
+
+.whyItem + .whyItem {
+  border-left: 1px solid #e9e1ee;
+}
+
+.whyItem span {
+  max-width: 170px;
+}
+
+.whyIcon {
+  flex-shrink: 0;
+  color: #e6155f;
+}
+
+.whyItem:nth-child(3) .whyIcon {
+  color: #6c3ce0;
+}
+
+/* ---------- Wave ---------- */
+
+.wave {
+  display: block;
+  width: 100%;
+  height: 110px;
+  margin-top: 40px;
+  margin-bottom: -1px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1199px) {
+  .cardGrid { grid-template-columns: repeat(2, 1fr); }
+  .whyGrid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+  .whyItem:nth-child(3) { border-left: 0; }
+}
+
+@media (max-width: 991px) {
+  .title { font-size: 46px; }
+  .subtitle { font-size: 19px; }
+}
+
+@media (max-width: 767px) {
+  .container { padding: 28px 16px 24px; }
+  .title { font-size: 36px; margin-bottom: 16px; }
+  .subtitle { font-size: 16px; }
+  .subtitle br { display: none; }
+  .cardGrid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+  .shopCard { padding: 20px; }
+  .whyHead { gap: 14px; margin: 44px 0 24px; }
+  .whyTitle { font-size: 22px; white-space: normal; text-align: center; }
+  .whyGrid { grid-template-columns: 1fr; row-gap: 0; }
+  .whyItem {
+    justify-content: flex-start;
+    padding: 16px 4px;
+    font-size: 18px;
+  }
+  .whyItem + .whyItem,
+  .whyItem:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid #e9e1ee;
+  }
+  .whyItem span { max-width: none; }
+  .wave { height: 60px; margin-top: 24px; }
+}
