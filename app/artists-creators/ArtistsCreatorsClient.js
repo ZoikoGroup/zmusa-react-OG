@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
+import { submitContactMessage, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   Search,
   User,
@@ -213,6 +214,8 @@ export default function ArtistsCreatorsClient() {
   const [formDetails, setFormDetails] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSending, setFormSending] = useState(false);
+  const [formError, setFormError] = useState("");
 
   // Filter and sort creators
   const filteredCreators = useMemo(() => {
@@ -278,8 +281,27 @@ export default function ArtistsCreatorsClient() {
     setOpenFaq((prev) => (prev === id ? null : id));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (formSending) return;
+    setFormError("");
+    setFormSending(true);
+    try {
+      await submitContactMessage({
+        email: formEmail,
+        subject: "ARTISTS & CREATORS PROFILE REQUEST",
+        fields: {
+          Profile: formProfile,
+          Request: formRequest,
+          Details: formDetails,
+        },
+      });
+    } catch {
+      setFormError(FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setFormSending(false);
+    }
     setFormSubmitted(true);
     setTimeout(() => {
       setFormSubmitted(false);
@@ -1053,8 +1075,13 @@ export default function ArtistsCreatorsClient() {
                   </div>
 
                   {/* Submit Button */}
-                  <button type="submit" className={styles.btnSubmitRequest}>
-                    {formSubmitted ? "Request submitted ✓" : "Send request"}
+                  {formError && (
+                    <p role="alert" style={{ color: "#d9534f", fontSize: "0.9rem", margin: "0 0 8px" }}>
+                      {formError}
+                    </p>
+                  )}
+                  <button type="submit" className={styles.btnSubmitRequest} disabled={formSending}>
+                    {formSending ? "Sending..." : formSubmitted ? "Request submitted ✓" : "Send request"}
                   </button>
                 </form>
               </div>

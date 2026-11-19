@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { subscribeEmail, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   ChevronRight,
   Heart,
@@ -205,6 +206,8 @@ export default function ExploreCommunityClient() {
   const [submittedRequest, setSubmittedRequest] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterDone, setNewsletterDone] = useState(false);
+  const [newsletterSending, setNewsletterSending] = useState(false);
+  const [newsletterError, setNewsletterError] = useState("");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   const renderInterestIcon = (iconName) => {
@@ -214,9 +217,19 @@ export default function ExploreCommunityClient() {
     return <Calendar size={15} strokeWidth={2} />;
   };
 
-  const handleNewsletterSubmit = (e) => {
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    if (!newsletterEmail.trim()) return;
+    if (!newsletterEmail.trim() || newsletterSending) return;
+    setNewsletterError("");
+    setNewsletterSending(true);
+    try {
+      await subscribeEmail(newsletterEmail);
+    } catch (err) {
+      setNewsletterError(err?.message || FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setNewsletterSending(false);
+    }
     setNewsletterDone(true);
     setNewsletterEmail("");
   };
@@ -1029,12 +1042,14 @@ export default function ExploreCommunityClient() {
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                 />
-                <button type="submit" className={styles.newsletterSubmitBtn}>
-                  Get updates
+                <button type="submit" className={styles.newsletterSubmitBtn} disabled={newsletterSending}>
+                  {newsletterSending ? "Sending..." : "Get updates"}
                 </button>
               </div>
-              <p className={styles.newsletterHelper}>
-                {newsletterDone
+              <p className={styles.newsletterHelper} role={newsletterError ? "alert" : undefined}>
+                {newsletterError
+                  ? newsletterError
+                  : newsletterDone
                   ? "You're subscribed to community updates."
                   : "Unsubscribe anytime."}
               </p>
