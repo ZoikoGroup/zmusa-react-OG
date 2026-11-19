@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
+import { submitContactMessage, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   ShieldCheck,
   PenTool,
@@ -106,6 +107,8 @@ export default function StoriesAndImpactClient() {
   const [wrongDetails, setWrongDetails] = useState("");
   const [reportEmail, setReportEmail] = useState("");
   const [reportSubmitted, setReportSubmitted] = useState(false);
+  const [reportSending, setReportSending] = useState(false);
+  const [reportError, setReportError] = useState("");
 
   const scrollToSection = (e, id) => {
     if (e) e.preventDefault();
@@ -145,9 +148,28 @@ export default function StoriesAndImpactClient() {
     );
   }, [activeCategory, selectedYear, searchQuery, sortOrder]);
 
-  const handleReportSubmit = (e) => {
+  const handleReportSubmit = async (e) => {
     e.preventDefault();
-    if (!wrongDetails.trim() || !reportEmail.trim()) return;
+    if (!wrongDetails.trim() || !reportEmail.trim() || reportSending) return;
+    setReportError("");
+    setReportSending(true);
+    try {
+      await submitContactMessage({
+        email: reportEmail,
+        subject: "STORIES & IMPACT CORRECTION REPORT",
+        fields: {
+          Type: reportType,
+          Section: issueSection,
+          Story: whichStory,
+          "What looks wrong": wrongDetails,
+        },
+      });
+    } catch {
+      setReportError(FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setReportSending(false);
+    }
     setReportSubmitted(true);
     setTimeout(() => {
       setWrongDetails("");
@@ -840,9 +862,16 @@ export default function StoriesAndImpactClient() {
                     our records.
                   </div>
                 ) : (
-                  <button type="submit" className={styles.submitReportBtn}>
-                    Send report
-                  </button>
+                  <>
+                    {reportError && (
+                      <p role="alert" style={{ color: "#d9534f", fontSize: "0.9rem", margin: "0 0 8px" }}>
+                        {reportError}
+                      </p>
+                    )}
+                    <button type="submit" className={styles.submitReportBtn} disabled={reportSending}>
+                      {reportSending ? "Sending..." : "Send report"}
+                    </button>
+                  </>
                 )}
               </form>
             </div>

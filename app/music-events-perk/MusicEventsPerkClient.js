@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { submitContactMessage, subscribeEmail, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   Music,
   Calendar,
@@ -153,12 +154,16 @@ export default function MusicEventsPerkClient() {
     optionalEmail: false,
   });
   const [spotlightSubmitted, setSpotlightSubmitted] = useState(false);
+  const [spotlightSending, setSpotlightSending] = useState(false);
+  const [spotlightError, setSpotlightError] = useState("");
 
   // Newsletter state
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [interests, setInterests] = useState(["Events near me"]);
   const [newsletterConsent, setNewsletterConsent] = useState(false);
   const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+  const [newsletterSending, setNewsletterSending] = useState(false);
+  const [newsletterError, setNewsletterError] = useState("");
 
   // FAQ state
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -202,20 +207,55 @@ export default function MusicEventsPerkClient() {
     );
   };
 
-  const handleSpotlightSubmit = (e) => {
+  const handleSpotlightSubmit = async (e) => {
     e.preventDefault();
+    if (spotlightSending) return;
     if (!spotlightForm.agreeTerms) {
       alert("Please accept the Spotlight terms to submit your application.");
       return;
     }
+    setSpotlightError("");
+    setSpotlightSending(true);
+    try {
+      await submitContactMessage({
+        name: spotlightForm.stageName,
+        email: spotlightForm.email,
+        subject: "MUSIC SPOTLIGHT APPLICATION",
+        fields: {
+          "Stage name": spotlightForm.stageName,
+          City: spotlightForm.city,
+          Genre: spotlightForm.genre === "Select a genre" ? "" : spotlightForm.genre,
+          Link: spotlightForm.link,
+          Bio: spotlightForm.bio,
+          "Agreed to Spotlight terms": spotlightForm.agreeTerms ? "yes" : "no",
+          "Opted in to emails": spotlightForm.optionalEmail ? "yes" : "no",
+        },
+      });
+    } catch {
+      setSpotlightError(FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setSpotlightSending(false);
+    }
     setSpotlightSubmitted(true);
   };
 
-  const handleNewsletterSubmit = (e) => {
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
+    if (newsletterSending) return;
     if (!newsletterConsent) {
       alert("Please confirm consent to receive updates.");
       return;
+    }
+    setNewsletterError("");
+    setNewsletterSending(true);
+    try {
+      await subscribeEmail(newsletterEmail);
+    } catch (err) {
+      setNewsletterError(err?.message || FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setNewsletterSending(false);
     }
     setNewsletterSuccess(true);
   };
@@ -837,9 +877,15 @@ export default function MusicEventsPerkClient() {
                   <span>Optional: email me about future artist opportunities.</span>
                 </label>
 
-                <button type="submit" className={styles.btnPrimary} style={{ width: "100%" }}>
-                  Submit application
+                <button type="submit" className={styles.btnPrimary} style={{ width: "100%" }} disabled={spotlightSending}>
+                  {spotlightSending ? "Submitting..." : "Submit application"}
                 </button>
+
+                {spotlightError && (
+                  <p role="alert" style={{ color: "#d9534f", fontSize: "14px", marginTop: "12px" }}>
+                    {spotlightError}
+                  </p>
+                )}
 
                 {spotlightSubmitted && (
                   <div style={{ marginTop: "16px", padding: "14px", background: "#F0FDF4", border: "1.5px solid #86EFAC", borderRadius: "12px", color: "#166534", fontSize: "14px", fontWeight: 600 }}>
@@ -979,9 +1025,15 @@ export default function MusicEventsPerkClient() {
                   </span>
                 </label>
 
-                <button type="submit" className={styles.btnPrimary} style={{ width: "100%", padding: "14px" }}>
-                  Get updates
+                <button type="submit" className={styles.btnPrimary} style={{ width: "100%", padding: "14px" }} disabled={newsletterSending}>
+                  {newsletterSending ? "Sending..." : "Get updates"}
                 </button>
+
+                {newsletterError && (
+                  <p role="alert" style={{ color: "#d9534f", fontSize: "14px", marginTop: "12px" }}>
+                    {newsletterError}
+                  </p>
+                )}
 
                 {newsletterSuccess && (
                   <div style={{ marginTop: "14px", padding: "12px", background: "#F0FDF4", border: "1.5px solid #86EFAC", borderRadius: "12px", color: "#166534", fontSize: "14px", fontWeight: 600 }}>

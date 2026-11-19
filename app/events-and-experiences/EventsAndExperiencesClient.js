@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
+import { subscribeEmail, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   Calendar,
   Search,
@@ -216,6 +217,8 @@ export default function EventsAndExperiencesClient() {
   const [subTopics, setSubTopics] = useState(["Music", "Animal welfare"]);
   const [subEmail, setSubEmail] = useState("");
   const [subSuccess, setSubSuccess] = useState(false);
+  const [subSending, setSubSending] = useState(false);
+  const [subError, setSubError] = useState("");
 
   // FAQ state (1st open by default)
   const [openFaq, setOpenFaq] = useState(1);
@@ -242,9 +245,19 @@ export default function EventsAndExperiencesClient() {
     );
   };
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (!subEmail.trim()) return;
+    if (!subEmail.trim() || subSending) return;
+    setSubError("");
+    setSubSending(true);
+    try {
+      await subscribeEmail(subEmail);
+    } catch (err) {
+      setSubError(err?.message || FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setSubSending(false);
+    }
     setSubSuccess(true);
     setTimeout(() => {
       setSubEmail("");
@@ -874,10 +887,15 @@ export default function EventsAndExperiencesClient() {
                     className={styles.updatesEmailInput}
                     required
                   />
-                  <button type="submit" className={styles.updatesSubscribeBtn}>
-                    {subSuccess ? "Subscribed!" : "Subscribe"}
+                  <button type="submit" className={styles.updatesSubscribeBtn} disabled={subSending}>
+                    {subSending ? "Subscribing..." : subSuccess ? "Subscribed!" : "Subscribe"}
                   </button>
                 </div>
+                {subError && (
+                  <p role="alert" style={{ color: "#d9534f", fontSize: "0.9rem", margin: "8px 0 0" }}>
+                    {subError}
+                  </p>
+                )}
               </div>
             </form>
           </div>

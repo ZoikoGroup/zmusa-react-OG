@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { submitContactMessage, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   Heart,
   Music,
@@ -171,6 +172,10 @@ export default function GetInvolvedClient() {
     consent: false,
   });
   const [partnerSubmitted, setPartnerSubmitted] = useState(false);
+  const [partnerSending, setPartnerSending] = useState(false);
+  const [partnerError, setPartnerError] = useState("");
+  const [volunteerSending, setVolunteerSending] = useState(false);
+  const [volunteerError, setVolunteerError] = useState("");
 
   // FAQ Accordion State (open first by default matching Figma)
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -252,19 +257,63 @@ export default function GetInvolvedClient() {
   };
 
   // Handle Volunteer Interest Submit
-  const handleVolunteerSubmit = (e) => {
+  const handleVolunteerSubmit = async (e) => {
     e.preventDefault();
+    if (volunteerSending) return;
     const randomCode = `ZM-GI-${Math.floor(1000 + Math.random() * 9000)}`;
+    setVolunteerError("");
+    setVolunteerSending(true);
+    try {
+      await submitContactMessage({
+        name: volunteerForm.name,
+        email: volunteerForm.email,
+        phone: volunteerForm.phone,
+        subject: "VOLUNTEER INTEREST",
+        fields: {
+          Reference: randomCode,
+          Opportunity: activeModalOpp?.title,
+          Organizer: activeModalOpp?.organizer,
+          Notes: volunteerForm.notes,
+        },
+      });
+    } catch {
+      setVolunteerError(FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setVolunteerSending(false);
+    }
     setInterestRefCode(randomCode);
     setInterestSubmitted(true);
   };
 
   // Handle Partner Form Submit
-  const handlePartnerSubmit = (e) => {
+  const handlePartnerSubmit = async (e) => {
     e.preventDefault();
+    if (partnerSending) return;
     if (!partnerForm.consent) {
       alert("Please check the consent checkbox to submit.");
       return;
+    }
+    setPartnerError("");
+    setPartnerSending(true);
+    try {
+      await submitContactMessage({
+        name: partnerForm.name,
+        email: partnerForm.email,
+        subject: "GET INVOLVED PARTNER INQUIRY",
+        fields: {
+          "Partner type": partnerType,
+          Organization: partnerForm.orgName,
+          Website: partnerForm.website,
+          Message: partnerForm.message,
+          Consent: partnerForm.consent ? "yes" : "no",
+        },
+      });
+    } catch {
+      setPartnerError(FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setPartnerSending(false);
     }
     setPartnerSubmitted(true);
   };
@@ -763,9 +812,15 @@ export default function GetInvolvedClient() {
                   </span>
                 </label>
 
-                <button type="submit" className={`${styles.btnPrimary} ${styles.partnerSubmit}`}>
-                  Send inquiry
+                <button type="submit" className={`${styles.btnPrimary} ${styles.partnerSubmit}`} disabled={partnerSending}>
+                  {partnerSending ? "Sending..." : "Send inquiry"}
                 </button>
+
+                {partnerError && (
+                  <p role="alert" style={{ color: "#d9534f", fontSize: "14px", marginTop: "12px" }}>
+                    {partnerError}
+                  </p>
+                )}
 
                 {partnerSubmitted && (
                   <div className={styles.partnerSuccessMsg}>
@@ -929,8 +984,13 @@ export default function GetInvolvedClient() {
                       />
                     </div>
 
-                    <button type="submit" className={styles.btnPrimary} style={{ width: "100%", marginTop: "10px" }}>
-                      Submit interest
+                    {volunteerError && (
+                      <p role="alert" style={{ color: "#d9534f", fontSize: "14px", margin: "10px 0 0" }}>
+                        {volunteerError}
+                      </p>
+                    )}
+                    <button type="submit" className={styles.btnPrimary} style={{ width: "100%", marginTop: "10px" }} disabled={volunteerSending}>
+                      {volunteerSending ? "Submitting..." : "Submit interest"}
                     </button>
                   </form>
                 </>

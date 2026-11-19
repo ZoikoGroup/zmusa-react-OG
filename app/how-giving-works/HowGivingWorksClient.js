@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { submitContactMessage, FORM_ERROR_MESSAGE } from "../utils/formApi";
 import {
   PawPrint,
   FileText,
@@ -75,14 +76,33 @@ export default function HowGivingWorksClient() {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSending, setFormSending] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const toggleFaq = (id) => {
     setOpenFaq(openFaq === id ? null : id);
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !message) return;
+    if (!email || !message || formSending) return;
+    setFormError("");
+    setFormSending(true);
+    try {
+      await submitContactMessage({
+        email,
+        subject: "HOW GIVING WORKS ENQUIRY",
+        fields: {
+          Topic: selectedTopic,
+          Message: message,
+        },
+      });
+    } catch {
+      setFormError(FORM_ERROR_MESSAGE);
+      return;
+    } finally {
+      setFormSending(false);
+    }
     setFormSubmitted(true);
     setTimeout(() => {
       setMessage("");
@@ -741,9 +761,16 @@ export default function HowGivingWorksClient() {
                       ✅ Thank you! Your message regarding &ldquo;{selectedTopic}&rdquo; has been sent. Our team will review and reply shortly.
                     </div>
                   ) : (
-                    <button type="submit" className={styles.submitBtn}>
-                      Send message
-                    </button>
+                    <>
+                      {formError && (
+                        <p role="alert" style={{ color: "#d9534f", fontSize: "0.9rem", margin: "0 0 8px" }}>
+                          {formError}
+                        </p>
+                      )}
+                      <button type="submit" className={styles.submitBtn} disabled={formSending}>
+                        {formSending ? "Sending..." : "Send message"}
+                      </button>
+                    </>
                   )}
                 </form>
               </div>
