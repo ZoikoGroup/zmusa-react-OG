@@ -10,7 +10,7 @@
 /* Mega Menu Container Card (1120px) */
 .megaMenu {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% - 8px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   width: 1120px;
