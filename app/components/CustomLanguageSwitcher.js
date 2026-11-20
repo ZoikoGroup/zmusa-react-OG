@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { Globe } from "lucide-react";
 
 const CustomLanguageSwitcher = () => {
   const [currentLang, setCurrentLang] = useState("en");
@@ -70,30 +71,65 @@ const CustomLanguageSwitcher = () => {
     changeLanguage(newLang);
   };
 
-  // 🔹 Add class to navbar when Spanish is active
+  // Add class to navbar when Spanish is active
   useEffect(() => {
     const navbar = document.querySelector("#langNav");
     if (navbar) {
       if (currentLang === "es") {
         navbar.classList.add("navbar-spanish");
       } else {
-        navbar.classList.remove("navbar-english");
+        navbar.classList.remove("navbar-spanish");
       }
     }
   }, [currentLang]);
 
   return (
     <>
-      <div id="google_translate_element_hidden" style={{ display: "none" }}></div>
-{currentLang === "es" && (<style>{`.nav-link{
-    font-size:1vw !important;}`}</style>)}
+      <div
+        id="google_translate_element_hidden"
+        style={{ display: "none" }}
+      ></div>
+
+      {currentLang === "es" && (
+        <style>{`.nav-link { font-size: 1vw !important; }`}</style>
+      )}
+
       <Button
         variant="link"
-        className="notranslate text-decoration-none text-dark p-0"
+        className="notranslate"
         onClick={toggleLanguage}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "7px",
+          padding: 0,
+          margin: 0,
+          border: "none",
+          background: "transparent",
+          boxShadow: "none",
+          color: "#ffffff",
+          textDecoration: "none",
+          fontSize: "13px",
+          fontWeight: 700,
+          lineHeight: 1.2,
+          cursor: "pointer",
+          whiteSpace: "nowrap",
+        }}
       >
-        {/* <i className="bi bi-globe me-1 notranslate"></i> */}
-        <span className="notranslate">
+        <Globe
+          size={15}
+          strokeWidth={2}
+          color="#ffffff"
+          style={{ flexShrink: 0 }}
+        />
+        <span
+          className="notranslate"
+          style={{
+            color: "#ffffff",
+            fontWeight: 700,
+            fontSize: "13px",
+          }}
+        >
           {currentLang === "en" ? "Español" : "English"}
         </span>
       </Button>
