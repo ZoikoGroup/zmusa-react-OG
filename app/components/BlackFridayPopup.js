@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./BlackFridayPopup.module.css";
 
-// Black Friday 2026 goes live Friday Nov 27 (local time)
-const DEADLINE = new Date("2026-11-27T00:00:00").getTime();
+// Black Friday 2026 goes live Nov 20 (local time)
+const DEADLINE = new Date("2026-11-20T00:00:00").getTime();
 const OFFER_END = new Date("2026-12-01T00:00:00").getTime();
 const STORAGE_KEY = "bfPopupDismissed2026";
 
@@ -155,7 +155,7 @@ export default function BlackFridayPopup() {
           </Link>
 
           <p className={styles.fine}>
-            Qualifying new lines only. Offer runs 27–30 Nov 2026. Standard monthly price
+            Qualifying new lines only. Offer runs 20–30 Nov 2026. Standard monthly price
             applies after the first three months.
           </p>
         </div>

@@ -47,7 +47,7 @@ const FAQS = [
   },
   {
     q: "How long does the offer run?",
-    a: "Our Black Friday promotional prices run starting Friday, November 27 through Cyber Monday, November 30, 2026.",
+    a: "Our Black Friday promotional prices run starting Friday, November 20 through Cyber Monday, November 30, 2026.",
   },
   {
     q: "What will I pay after the first three months?",
@@ -129,7 +129,7 @@ export default function BlackFridayNewPage() {
           </div>
           <div className={styles.topTickerWhiteBox}>
             <Tag size={16} />
-            <span>BLACK FRIDAY 2026 · NOV 27 – CYBER MONDAY NOV 30</span>
+            <span>BLACK FRIDAY 2026 · NOV 20 – CYBER MONDAY NOV 30</span>
           </div>
           <div className={styles.topTickerItem}>
             <CheckCircle2 size={16} />
@@ -280,7 +280,7 @@ export default function BlackFridayNewPage() {
                   BLACK<br />FRIDAY
                 </div>
                 <div className={styles.swingTagSale}>SALE</div>
-                <div className={styles.swingTagDates}>NOV 27 – 30</div>
+                <div className={styles.swingTagDates}>NOV 20 – 30</div>
               </div>
             </div>
 
@@ -314,7 +314,7 @@ export default function BlackFridayNewPage() {
           <div className={`${styles.ukMarquee} ${styles.ribbonLowerText}`}>
             {[...Array(6)].map((_, i) => (
               <span key={i} style={{ marginRight: "32px" }}>
-                ZOIKO MOBILE USA · BLACK FRIDAY 2026 · NOV 27 – NOV 30 ·{" "}
+                ZOIKO MOBILE USA · BLACK FRIDAY 2026 · NOV 20 – NOV 30 ·{" "}
               </span>
             ))}
           </div>
@@ -335,7 +335,7 @@ export default function BlackFridayNewPage() {
           <div className={styles.timelineDatesRow}>
             {/* Box 1 (Dark) */}
             <div className={styles.timelineDateBoxDark}>
-              <div className={styles.timelineDateNumber}>27</div>
+              <div className={styles.timelineDateNumber}>20</div>
               <div className={styles.timelineDateMeta}>
                 <span className={styles.timelineDateMonth}>NOVEMBER 2026</span>
                 <span className={styles.timelineDateTagPink}>BLACK FRIDAY</span>
@@ -454,7 +454,7 @@ export default function BlackFridayNewPage() {
               <div className={styles.plansBoxSwingTagBody}>
                 <div className={styles.plansBoxSwingTagHole} />
                 <div className={styles.plansBoxSwingTagSale}>SALE</div>
-                <div className={styles.plansBoxSwingTagDate}>NOV 27</div>
+                <div className={styles.plansBoxSwingTagDate}>NOV 20</div>
               </div>
             </div>
 
@@ -928,7 +928,7 @@ export default function BlackFridayNewPage() {
 
         <div className={styles.bottomCtaContainer}>
           <div className={styles.bottomPill}>
-            BLACK FRIDAY NOV 27 · CYBER MONDAY NOV 30
+            BLACK FRIDAY NOV 20 · CYBER MONDAY NOV 30
           </div>
 
           <h2 className={styles.bottomBigTitle}>
