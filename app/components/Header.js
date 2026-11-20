@@ -621,8 +621,28 @@ const Header = () => {
                 className="zk-logo-img"
               />
             </Link>
-
+            
+<style>{`
+  .zk-menu-button {
+    white-space: nowrap !important;
+    flex-shrink: 0;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .zk-menu-item:hover > .zk-menu-button,
+  .zk-menu-item.active > .zk-menu-button {
+    background-color: #FDE7F2 !important;
+    color: #D6187F !important;
+    border-radius: 8px;
+  }
+  .zk-active-indicator { background: #D6187F !important; }
+  .zk-menu { flex-wrap: nowrap !important; }
+  .zk-menu-item { flex-shrink: 0; }
+  .zk-signin-link { white-space: nowrap !important; flex-shrink: 0; }
+  .zk-getstarted-btn { white-space: nowrap !important; flex-shrink: 0; }
+  .zk-actions { flex-shrink: 0; white-space: nowrap; }
+`}</style>
             {/* DESKTOP MENU ITEMS */}
+            <span style={{ display: "inline-block", width: "1px", height: "28px", background: "#D9D9E0", margin: "0 14px", flexShrink: 0 }} />
             <nav>
               <ul className="zk-menu">
                 {/* 1. Plans & Pricing */}
@@ -1422,64 +1442,89 @@ const Header = () => {
             </nav>
 
             {/* RIGHT SIDE ACTIONS */}
-            <div className="zk-actions">
-              {/* Search Toggle Button */}
-              <button
-                type="button"
-                className="zk-icon-btn"
-                onClick={() => setSearchOpen(!searchOpen)}
-                aria-label="Search"
-              >
-                <Search size={19} />
-              </button>
+            {/* RIGHT SIDE ACTIONS */}
+<div className="zk-actions">
+  <span style={{ display: "inline-block", width: "1px", height: "28px", background: "#D9D9E0", margin: "0 14px", flexShrink: 0 }} />
 
-              {/* Shopping Cart Button */}
-              <Link
-                href="/checkout"
-                className="zk-icon-btn"
-                aria-label="View Shopping Cart"
-              >
-                <ShoppingCart size={19} />
-                <span className="zk-cart-badge">{cartCount}</span>
-              </Link>
+  {/* Search Toggle Button */}
+  <button
+    type="button"
+    className="zk-icon-btn"
+    onClick={() => setSearchOpen(!searchOpen)}
+    aria-label="Search"
+  >
+    <Search size={19} />
+  </button>
 
-              {/* Sign In / Account */}
-              {isLoggedIn ? (
-                <div style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
-                  <Link href="/dashboard" className="zk-signin-link">
-                    <User size={15} style={{ marginRight: "4px", verticalAlign: "middle" }} />
-                    {user?.name?.split(" ")[0] || "Account"}
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="zk-icon-btn"
-                    title="Logout"
-                    style={{ width: "32px", height: "32px" }}
-                  >
-                    <LogOut size={16} />
-                  </button>
-                </div>
-              ) : (
-                <Link href="/login" className="zk-signin-link">
-                  Sign In
-                </Link>
-              )}
+  {/* Shopping Cart Button */}
+  <Link
+    href="/checkout"
+    className="zk-icon-btn"
+    aria-label="View Shopping Cart"
+  >
+    <ShoppingCart size={19} />
+    <span className="zk-cart-badge" style={{ background: "#D6187F" }}>{cartCount}</span>
+  </Link>
 
-              {/* Primary Call-to-Action */}
-              <Link href="/prepaid-plans" className="zk-getstarted-btn">
-                Get Started ›
-              </Link>
+  {/* Sign In / Account */}
+  {isLoggedIn ? (
+    <div style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+      <Link href="/dashboard" className="zk-signin-link">
+        <User size={15} style={{ marginRight: "4px", verticalAlign: "middle" }} />
+        {user?.name?.split(" ")[0] || "Account"}
+      </Link>
+      <button
+        onClick={handleLogout}
+        className="zk-icon-btn"
+        title="Logout"
+        style={{ width: "32px", height: "32px" }}
+      >
+        <LogOut size={16} />
+      </button>
+    </div>
+  ) : (
+    <Link
+      href="/login"
+      className="zk-signin-link"
+      style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+      </svg>
+      <span>Sign In</span>
+    </Link>
+  )}
 
-              {/* Mobile Drawer Toggle */}
-              <button
-                type="button"
-                className="zk-mobile-toggle"
-                onClick={() => setMobileMenuOpen(true)}
-                aria-label="Open mobile menu"
-              >
-                <Menu size={26} />
-              </button>
-            </div>
+  {/* Primary Call-to-Action */}
+  <Link
+    href="/prepaid-plans"
+    className="zk-getstarted-btn"
+    style={{ background: "#E0097F" }}
+  >
+    Get Started ›
+  </Link>
+
+  {/* Mobile Drawer Toggle */}
+  <button
+    type="button"
+    className="zk-mobile-toggle"
+    onClick={() => setMobileMenuOpen(true)}
+    aria-label="Open mobile menu"
+  >
+    <Menu size={26} />
+  </button>
+</div>
           </div>
         </header>
 
