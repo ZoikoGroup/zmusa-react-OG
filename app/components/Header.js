@@ -609,924 +609,1001 @@ const Header = () => {
             MAIN NAVIGATION BAR
             ============================================================== */}
         <header className="zk-mainnav">
-          <div className="zk-mainnav-container">
-            {/* LOGO */}
-            <Link href="/" className="zk-logo-link">
-              <Image
-                src="/img/zoikomobileus-logo-png.png"
-                alt="Zoiko Mobile Logo"
-                width={175}
-                height={64}
-                priority
-                className="zk-logo-img"
-              />
-            </Link>
-            
-<style>{`
-  .zk-menu-button {
-    white-space: nowrap !important;
-    flex-shrink: 0;
-    transition: background-color .2s ease, color .2s ease;
-  }
-  .zk-menu-item:hover > .zk-menu-button,
-  .zk-menu-item.active > .zk-menu-button {
-    background-color: #FDE7F2 !important;
-    color: #D6187F !important;
-    border-radius: 8px;
-  }
-  .zk-active-indicator { background: #D6187F !important; }
-  .zk-menu { flex-wrap: nowrap !important; }
-  .zk-menu-item { flex-shrink: 0; }
-  .zk-signin-link { white-space: nowrap !important; flex-shrink: 0; }
-  .zk-getstarted-btn { white-space: nowrap !important; flex-shrink: 0; }
-  .zk-actions { flex-shrink: 0; white-space: nowrap; }
-`}</style>
-            {/* DESKTOP MENU ITEMS */}
-            <span style={{ display: "inline-block", width: "1px", height: "28px", background: "#D9D9E0", margin: "0 14px", flexShrink: 0 }} />
-            <nav>
-              <ul className="zk-menu">
-                {/* 1. Plans & Pricing */}
-                <li
-                  className={`zk-menu-item ${styles.hasMegaMenu} ${
-                    pathname?.includes("plan") ? "active" : ""
-                  }`}
-                >
-                  <button type="button" className="zk-menu-button">
-                    Plans &amp; Pricing
-                    <ChevronDown size={13} className="zk-menu-chevron" />
-                    {pathname?.includes("plan") && (
-                      <span className="zk-active-indicator" />
-                    )}
-                  </button>
+  <style>{`
+    /* ---------- Layout: logo | divider | nav (fills space) | actions ---------- */
+    .zk-mainnav-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      flex-wrap: nowrap !important;
+      gap: clamp(8px, 1.2vw, 20px) !important;
+    }
+    .zk-logo-link { flex: 0 0 auto; display: flex; align-items: center; }
+    .zk-logo-img { width: clamp(105px, 10vw, 175px) !important; height: auto !important; }
 
-                  {/* Mega Menu: Plans & Pricing */}
-                  <div className={styles.megaMenu}>
-                    {/* Col 1: Shop Plans */}
-                    <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Layers size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Shop Plans</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/wireless-plans" className={styles.linkItem}>
-                          <span>Compare All Plans</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/plans/zoiko-lite" className={styles.linkItem}>
-                          <span>Zoiko Lite</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/plans/zoiko-core" className={styles.linkItem}>
-                          <span>Zoiko Core</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/plans/zoiko-max" className={styles.linkItem}>
-                          <span>Zoiko Max</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/prepaid-plans" className={styles.linkItem}>
-                          <span>Prepaid Plans</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
+    .zk-divider {
+      display: inline-block;
+      width: 1px;
+      height: 28px;
+      background: #D9D9E0;
+      flex: 0 0 1px;
+    }
+
+    .zk-mainnav nav { flex: 1 1 auto; min-width: 0; margin: 0 !important; }
+    .zk-menu {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+      gap: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* ---------- Menu buttons (fluid size) ---------- */
+    .zk-menu-button {
+      white-space: nowrap !important;
+      font-size: clamp(12px, 0.95vw, 15px) !important;
+      padding: 8px clamp(6px, 0.7vw, 12px) !important;
+      transition: background-color .2s ease, color .2s ease;
+    }
+    .zk-menu-item:hover > .zk-menu-button,
+    .zk-menu-item.active > .zk-menu-button {
+      background-color: #FDE7F2 !important;
+      color: #D6187F !important;
+      border-radius: 8px;
+    }
+    .zk-active-indicator { background: #D6187F !important; }
+
+    /* ---------- Right side actions ---------- */
+    .zk-actions {
+      display: flex !important;
+      align-items: center !important;
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
+      gap: clamp(6px, 0.8vw, 14px) !important;
+      white-space: nowrap;
+    }
+    .zk-signin-link {
+      white-space: nowrap !important;
+      font-size: clamp(13px, 0.95vw, 15px) !important;
+    }
+    .zk-getstarted-btn {
+      white-space: nowrap !important;
+      flex-shrink: 0;
+      padding-left: clamp(12px, 1.2vw, 24px) !important;
+      padding-right: clamp(12px, 1.2vw, 24px) !important;
+    }
+
+    /* Mobile toggle hidden on desktop */
+    @media (min-width: 1101px) {
+      .zk-mobile-toggle { display: none !important; }
+    }
+
+    /* Small laptops: remove chevrons and the Sign In text (icon stays) */
+    @media (max-width: 1200px) {
+      .zk-menu-chevron { display: none !important; }
+      .zk-signin-link span { display: none; }
+    }
+
+    /* Tablet & mobile: hide desktop menu, show hamburger */
+    @media (max-width: 1100px) {
+      .zk-mainnav nav,
+      .zk-divider { display: none !important; }
+      .zk-mobile-toggle { display: inline-flex !important; align-items: center; justify-content: center; }
+      .zk-logo-img { width: clamp(105px, 22vw, 150px) !important; }
+    }
+
+    /* Phones */
+    @media (max-width: 480px) {
+      .zk-icon-btn { width: 34px !important; height: 34px !important; }
+      .zk-getstarted-btn {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+      }
+    }
+    @media (max-width: 400px) {
+      .zk-getstarted-btn { display: none !important; }
+    }
+  `}</style>
+
+  <div className="zk-mainnav-container">
+    {/* LOGO */}
+    <Link href="/" className="zk-logo-link">
+      <Image
+        src="/img/zoikomobileus-logo-png.png"
+        alt="Zoiko Mobile Logo"
+        width={175}
+        height={64}
+        priority
+        className="zk-logo-img"
+      />
+    </Link>
+
+    <span className="zk-divider" />
+
+    {/* DESKTOP MENU ITEMS */}
+    <nav>
+      <ul className="zk-menu">
+        {/* 1. Plans & Pricing */}
+        <li
+          className={`zk-menu-item ${styles.hasMegaMenu} ${
+            pathname?.includes("plan") ? "active" : ""
+          }`}
+        >
+          <button type="button" className="zk-menu-button">
+            Plans &amp; Pricing
+            <ChevronDown size={13} className="zk-menu-chevron" />
+            {pathname?.includes("plan") && (
+              <span className="zk-active-indicator" />
+            )}
+          </button>
+
+          {/* Mega Menu: Plans & Pricing */}
+          <div className={styles.megaMenu}>
+            {/* Col 1: Shop Plans */}
+            <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Layers size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Shop Plans</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/wireless-plans" className={styles.linkItem}>
+                  <span>Compare All Plans</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/plans/zoiko-lite" className={styles.linkItem}>
+                  <span>Zoiko Lite</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/plans/zoiko-core" className={styles.linkItem}>
+                  <span>Zoiko Core</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/plans/zoiko-max" className={styles.linkItem}>
+                  <span>Zoiko Max</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/prepaid-plans" className={styles.linkItem}>
+                  <span>Prepaid Plans</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 2: Save More */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Tag size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Save More</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/family-plans" className={styles.linkItem}>
+                  <span>Family &amp; Multi-Line</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/college-student" className={styles.linkItem}>
+                  <span>Student Savings</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/military-veterans" className={styles.linkItem}>
+                  <span>Military &amp; Veterans</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/postal-service-workers" className={styles.linkItem}>
+                  <span>USPS Employees</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/offer-page" className={styles.linkItem}>
+                  <span>Current Deals</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 3: Get Connected */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Wifi size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Get Connected</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/byod-plans" className={styles.linkItem}>
+                  <span>Bring Your Phone</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="https://mvnoc.ai/coverage-map" target="_blank" className={styles.linkItem}>
+                  <span>Check Coverage</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/activate" className={styles.linkItem}>
+                  <span>Activate SIM or eSIM</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/switch" className={styles.linkItem}>
+                  <span>Switch &amp; Save</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/switch" className={styles.linkItem}>
+                  <span>Keep Your Number</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 4: Promo Card */}
+            <div className={styles.promoCol}>
+              <div className={styles.promoCard}>
+                <div>
+                  <div className={styles.promoTitle}>
+                    Wireless plans from <span className={styles.promoHighlight}>$13</span>/month per line.
+                  </div>
+                </div>
+                <div className={styles.promoActionArea}>
+                  <Link href="/wireless-plans" className={styles.promoBtn}>
+                    Compare Plans ›
+                  </Link>
+                  <Link href="/wireless-plans" className={styles.promoDetailLink}>
+                    View plan details
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* 2. Phones & Devices */}
+        <li
+          className={`zk-menu-item ${styles.hasMegaMenu} ${
+            pathname?.includes("product") || pathname?.includes("device")
+              ? "active"
+              : ""
+          }`}
+        >
+          <button type="button" className="zk-menu-button">
+            Phones &amp; Devices
+            <ChevronDown size={13} className="zk-menu-chevron" />
+          </button>
+
+          {/* Mega Menu: Phones & Devices */}
+          <div className={styles.megaMenu}>
+            {/* Col 1: Shop Devices */}
+            <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderTitle}>Shop Devices</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/shop-phones" className={styles.linkItem}>
+                  <span>Shop Smartphones</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/product-category/refurbished" className={styles.linkItem}>
+                  <span>Refurbished Phones</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/accessories" className={styles.linkItem}>
+                  <span>Accessories</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/accessories" className={styles.linkItem}>
+                  <span>Tablets &amp; Hotspots</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/offer-page" className={styles.linkItem}>
+                  <span>Device Deals</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 2: Keep Your Device */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderTitle}>Keep Your Device</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/byod-plans" className={styles.linkItem}>
+                  <span>Bring Your Own Phone</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/check-compatibility" className={styles.linkItem}>
+                  <span>Check Compatibility</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/phone-unlock-help" className={styles.linkItem}>
+                  <span>Phone Unlock Help</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/esim" className={styles.linkItem}>
+                  <span>SIM &amp; eSIM</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/device-protection" className={styles.linkItem}>
+                  <span>Device Protection</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/how-to-activate-sim" className={styles.linkItem}>
+                  <span>How to Activate SIM</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 3: Shop by Need */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderTitle}>Shop by Need</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/shop-phones" className={styles.linkItem}>
+                  <span>Browse All Smartphones</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/product-category/refurbished" className={styles.linkItem}>
+                  <span>Phones Under $300</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/shop-phones" className={styles.linkItem}>
+                  <span>Phones for Families</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/trade-in-options" className={styles.linkItem}>
+                  <span>Trade-In Options</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/return-policy" className={styles.linkItem}>
+                  <span>Returns &amp; Warranty</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 4: Promo Card */}
+            <div className={styles.promoCol}>
+              <div className={styles.promoCard}>
+                <div>
+                  <div className={styles.promoTitle}>
+                    Find a phone, or bring the one you own.
+                  </div>
+                </div>
+                <div className={styles.promoActionArea}>
+                  <Link href="/shop-phones" className={styles.promoBtn}>
+                    Shop Phones ›
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* 3. Bring Your Phone */}
+        <li
+          className={`zk-menu-item ${styles.hasMegaMenu} ${
+            pathname?.includes("byod") || pathname?.includes("switch")
+              ? "active"
+              : ""
+          }`}
+        >
+          <button type="button" className="zk-menu-button">
+            Bring Your Phone
+            <ChevronDown size={13} className="zk-menu-chevron" />
+          </button>
+
+          {/* Mega Menu: Bring Your Phone */}
+          <div className={styles.megaMenu}>
+            {/* Col 1: Start Here */}
+            <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderTitle}>Start Here</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/check-compatibility" className={styles.linkItem}>
+                  <span>Check Compatibility</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/byod-plans" className={styles.linkItem}>
+                  <span>How BYOD Works</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/wireless-plans" className={styles.linkItem}>
+                  <span>Choose a Plan</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/esim" className={styles.linkItem}>
+                  <span>SIM or eSIM</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/phone-unlock-help" className={styles.linkItem}>
+                  <span>Unlock Your Phone</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 2: Switch & Activate */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderTitle}>Switch &amp; Activate</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/switch" className={styles.linkItem}>
+                  <span>Keep Your Number</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/switch" className={styles.linkItem}>
+                  <span>Transfer Your Number</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/activate" className={styles.linkItem}>
+                  <span>Activate SIM or eSIM</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/switch" className={styles.linkItem}>
+                  <span>Switch &amp; Save</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/activate" className={styles.linkItem}>
+                  <span>Track Activation</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 3: Help & Resources */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderTitle}>Help &amp; Resources</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/faq" className={styles.linkItem}>
+                  <span>BYOD FAQs</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="https://mvnoc.ai/coverage-map" target="_blank" className={styles.linkItem}>
+                  <span>Network Coverage</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/support" className={styles.linkItem}>
+                  <span>Number Transfer Help</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/network-service" className={styles.linkItem}>
+                  <span>APN &amp; Setup Help</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/contact-us" className={styles.linkItem}>
+                  <span>Contact Support</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 4: Promo Card */}
+            <div className={styles.promoCol}>
+              <div className={styles.promoCard}>
+                <div>
+                  <div className={styles.promoTitle}>
+                    Keep your phone. Keep your number where eligible.
+                  </div>
+                  <div className={styles.promoSubtext}>
+                    Plans from $13/month per line. Terms apply.
+                  </div>
+                </div>
+                <div className={styles.promoActionArea}>
+                  <Link href="/check-compatibility" className={styles.promoBtn}>
+                    Check Compatibility ›
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* 4. Business */}
+        <li
+          className={`zk-menu-item ${styles.hasMegaMenu} ${
+            pathname?.includes("business") ? "active" : ""
+          }`}
+        >
+          <button type="button" className="zk-menu-button">
+            Business
+            <ChevronDown size={13} className="zk-menu-chevron" />
+          </button>
+
+          {/* Mega Menu: Business */}
+          <div className={styles.megaMenu}>
+            {/* Col 1: Business Plans */}
+            <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Briefcase size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Business Plans</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Business Plans</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Compare Business Plans</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/multi-line-options" className={styles.linkItem}>
+                  <span>Multi-Line Options</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/contact-us" className={styles.linkItem}>
+                  <span>Talk to Sales</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 2: Manage Your Team */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Users size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Manage Your Team</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Bring Employee Devices</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Add or Change Lines</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/shop-phones" className={styles.linkItem}>
+                  <span>Business Devices</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/support" className={styles.linkItem}>
+                  <span>Account &amp; Billing Support</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/customer-service" className={styles.linkItem}>
+                  <span>Dedicated Support</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 3: Business Solutions */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Layers size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Business Solutions</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Small Business</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Retail &amp; Field Teams</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/business-deals" className={styles.linkItem}>
+                  <span>Remote &amp; Hybrid Teams</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/international-callings" className={styles.linkItem}>
+                  <span>International Calling</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/contact-us" className={styles.linkItem}>
+                  <span>Request a Quote</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Col 4: Promo Card */}
+            <div className={styles.promoCol}>
+              <div className={styles.promoCard}>
+                <div>
+                  <div className={styles.promoTitle}>
+                    Wireless built for growing teams.
+                  </div>
+                  <div className={styles.bulletList}>
+                    <div className={styles.bulletItem}>
+                      <span className={styles.greenDot} />
+                      <span>Flexible multi-line plans</span>
                     </div>
-
-                    {/* Col 2: Save More */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Tag size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Save More</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/family-plans" className={styles.linkItem}>
-                          <span>Family &amp; Multi-Line</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/college-student" className={styles.linkItem}>
-                          <span>Student Savings</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/military-veterans" className={styles.linkItem}>
-                          <span>Military &amp; Veterans</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/postal-service-workers" className={styles.linkItem}>
-                          <span>USPS Employees</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/offer-page" className={styles.linkItem}>
-                          <span>Current Deals</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 3: Get Connected */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Wifi size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Get Connected</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/byod-plans" className={styles.linkItem}>
-                          <span>Bring Your Phone</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="https://mvnoc.ai/coverage-map" target="_blank" className={styles.linkItem}>
-                          <span>Check Coverage</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/activate" className={styles.linkItem}>
-                          <span>Activate SIM or eSIM</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/switch" className={styles.linkItem}>
-                          <span>Switch &amp; Save</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/switch" className={styles.linkItem}>
-                          <span>Keep Your Number</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 4: Promo Card */}
-                    <div className={styles.promoCol}>
-                      <div className={styles.promoCard}>
-                        <div>
-                          <div className={styles.promoTitle}>
-                            Wireless plans from <span className={styles.promoHighlight}>$13</span>/month per line.
-                          </div>
-                        </div>
-                        <div className={styles.promoActionArea}>
-                          <Link href="/wireless-plans" className={styles.promoBtn}>
-                            Compare Plans ›
-                          </Link>
-                          <Link href="/wireless-plans" className={styles.promoDetailLink}>
-                            View plan details
-                          </Link>
-                        </div>
-                      </div>
+                    <div className={styles.bulletItem}>
+                      <span className={styles.greenDot} />
+                      <span>Bring your own devices</span>
                     </div>
                   </div>
-                </li>
+                </div>
+                <div className={styles.promoActionArea}>
+                  <Link href="/business-deals" className={styles.promoBtn}>
+                    Explore Business Plans ›
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
-                {/* 2. Phones & Devices */}
-                <li
-                  className={`zk-menu-item ${styles.hasMegaMenu} ${
-                    pathname?.includes("product") || pathname?.includes("device")
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  <button type="button" className="zk-menu-button">
-                    Phones &amp; Devices
-                    <ChevronDown size={13} className="zk-menu-chevron" />
-                  </button>
+        {/* 5. International */}
+        <li
+          className={`zk-menu-item ${styles.hasMegaMenu} ${
+            pathname?.includes("international") ||
+            pathname?.includes("travel")
+              ? "active"
+              : ""
+          }`}
+        >
+          <button type="button" className="zk-menu-button">
+            International
+            <ChevronDown size={13} className="zk-menu-chevron" />
+          </button>
 
-                  {/* Mega Menu: Phones & Devices */}
-                  <div className={styles.megaMenu}>
-                    {/* Col 1: Shop Devices */}
-                    <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderTitle}>Shop Devices</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/shop-phones" className={styles.linkItem}>
-                          <span>Shop Smartphones</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/product-category/refurbished" className={styles.linkItem}>
-                          <span>Refurbished Phones</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/accessories" className={styles.linkItem}>
-                          <span>Accessories</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/accessories" className={styles.linkItem}>
-                          <span>Tablets &amp; Hotspots</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/offer-page" className={styles.linkItem}>
-                          <span>Device Deals</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+          {/* Mega Menu: International */}
+          <div className={styles.megaMenu}>
+            {/* Col 1: Call Abroad */}
+            <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <PhoneCall size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Call Abroad</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/international-callings" className={styles.linkItem}>
+                  <span>International Calling</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/roaming-rates" className={styles.linkItem}>
+                  <span>Check Calling Rates</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/international-callings" className={styles.linkItem}>
+                  <span>Calling Add-Ons</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/faq" className={styles.linkItem}>
+                  <span>International FAQs</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
 
-                    {/* Col 2: Keep Your Device */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderTitle}>Keep Your Device</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/byod-plans" className={styles.linkItem}>
-                          <span>Bring Your Own Phone</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/check-compatibility" className={styles.linkItem}>
-                          <span>Check Compatibility</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/phone-unlock-help" className={styles.linkItem}>
-                          <span>Phone Unlock Help</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/esim" className={styles.linkItem}>
-                          <span>SIM &amp; eSIM</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/device-protection" className={styles.linkItem}>
-                          <span>Device Protection</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/how-to-activate-sim" className={styles.linkItem}>
-                          <span>How to Activate SIM</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+            {/* Col 2: Travel & Roaming */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Plane size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Travel &amp; Roaming</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/travel-plans" className={styles.linkItem}>
+                  <span>International Roaming</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/canada-mexico-roaming-plans" className={styles.linkItem}>
+                  <span>Canada &amp; Mexico</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/travel-plans" className={styles.linkItem}>
+                  <span>Travel Passes</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/esim" className={styles.linkItem}>
+                  <span>Travel eSIM</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
 
-                    {/* Col 3: Shop by Need */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderTitle}>Shop by Need</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/shop-phones" className={styles.linkItem}>
-                          <span>Browse All Smartphones</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/product-category/refurbished" className={styles.linkItem}>
-                          <span>Phones Under $300</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/shop-phones" className={styles.linkItem}>
-                          <span>Phones for Families</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/trade-in-options" className={styles.linkItem}>
-                          <span>Trade-In Options</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/return-policy" className={styles.linkItem}>
-                          <span>Returns &amp; Warranty</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+            {/* Col 3: Before You Go */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Globe size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Before You Go</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/check-a-destination" className={styles.linkItem}>
+                  <span>Check a Destination</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/check-compatibility" className={styles.linkItem}>
+                  <span>Device Compatibility</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/support" className={styles.linkItem}>
+                  <span>Travel Support</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/international-usage-tips" className={styles.linkItem}>
+                  <span>International Usage Tips</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
 
-                    {/* Col 4: Promo Card */}
-                    <div className={styles.promoCol}>
-                      <div className={styles.promoCard}>
-                        <div>
-                          <div className={styles.promoTitle}>
-                            Find a phone, or bring the one you own.
-                          </div>
-                        </div>
-                        <div className={styles.promoActionArea}>
-                          <Link href="/shop-phones" className={styles.promoBtn}>
-                            Shop Phones ›
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+            {/* Col 4: Promo Card */}
+            <div className={styles.promoCol}>
+              <div className={styles.promoCard}>
+                <div>
+                  <div className={styles.promoTitle}>
+                    Wherever life takes you, stay connected.
                   </div>
-                </li>
-
-                {/* 3. Bring Your Phone */}
-                <li
-                  className={`zk-menu-item ${styles.hasMegaMenu} ${
-                    pathname?.includes("byod") || pathname?.includes("switch")
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  <button type="button" className="zk-menu-button">
-                    Bring Your Phone
-                    <ChevronDown size={13} className="zk-menu-chevron" />
-                  </button>
-
-                  {/* Mega Menu: Bring Your Phone */}
-                  <div className={styles.megaMenu}>
-                    {/* Col 1: Start Here */}
-                    <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderTitle}>Start Here</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/check-compatibility" className={styles.linkItem}>
-                          <span>Check Compatibility</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/byod-plans" className={styles.linkItem}>
-                          <span>How BYOD Works</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/wireless-plans" className={styles.linkItem}>
-                          <span>Choose a Plan</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/esim" className={styles.linkItem}>
-                          <span>SIM or eSIM</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/phone-unlock-help" className={styles.linkItem}>
-                          <span>Unlock Your Phone</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 2: Switch & Activate */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderTitle}>Switch &amp; Activate</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/switch" className={styles.linkItem}>
-                          <span>Keep Your Number</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/switch" className={styles.linkItem}>
-                          <span>Transfer Your Number</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/activate" className={styles.linkItem}>
-                          <span>Activate SIM or eSIM</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/switch" className={styles.linkItem}>
-                          <span>Switch &amp; Save</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/activate" className={styles.linkItem}>
-                          <span>Track Activation</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 3: Help & Resources */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderTitle}>Help &amp; Resources</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/faq" className={styles.linkItem}>
-                          <span>BYOD FAQs</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="https://mvnoc.ai/coverage-map" target="_blank" className={styles.linkItem}>
-                          <span>Network Coverage</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/support" className={styles.linkItem}>
-                          <span>Number Transfer Help</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/network-service" className={styles.linkItem}>
-                          <span>APN &amp; Setup Help</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/contact-us" className={styles.linkItem}>
-                          <span>Contact Support</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 4: Promo Card */}
-                    <div className={styles.promoCol}>
-                      <div className={styles.promoCard}>
-                        <div>
-                          <div className={styles.promoTitle}>
-                            Keep your phone. Keep your number where eligible.
-                          </div>
-                          <div className={styles.promoSubtext}>
-                            Plans from $13/month per line. Terms apply.
-                          </div>
-                        </div>
-                        <div className={styles.promoActionArea}>
-                          <Link href="/check-compatibility" className={styles.promoBtn}>
-                            Check Compatibility ›
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+                  <div className={styles.promoSubtext}>
+                    Country-specific rates and availability shown before you buy.
                   </div>
-                </li>
+                </div>
+                <div className={styles.promoActionArea}>
+                  <Link href="/explore-international" className={styles.promoBtn}>
+                    Explore International ›
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
-                {/* 4. Business */}
-                <li
-                  className={`zk-menu-item ${styles.hasMegaMenu} ${
-                    pathname?.includes("business") ? "active" : ""
-                  }`}
-                >
-                  <button type="button" className="zk-menu-button">
-                    Business
-                    <ChevronDown size={13} className="zk-menu-chevron" />
-                  </button>
+        {/* 6. Community */}
+        <li
+          className={`zk-menu-item ${styles.hasMegaMenu} ${
+            pathname?.includes("student") ||
+            pathname?.includes("military") ||
+            pathname?.includes("animal") ||
+            pathname?.includes("music")
+              ? "active"
+              : ""
+          }`}
+        >
+          <button type="button" className="zk-menu-button">
+            Community
+            <ChevronDown size={13} className="zk-menu-chevron" />
+          </button>
 
-                  {/* Mega Menu: Business */}
-                  <div className={styles.megaMenu}>
-                    {/* Col 1: Business Plans */}
-                    <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Briefcase size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Business Plans</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Business Plans</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Compare Business Plans</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/multi-line-options" className={styles.linkItem}>
-                          <span>Multi-Line Options</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/contact-us" className={styles.linkItem}>
-                          <span>Talk to Sales</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+          {/* Mega Menu: Community */}
+          <div className={styles.megaMenu}>
+            {/* Col 1: Animal Causes */}
+            <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <PawPrint size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Animal Causes</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/animal-charities" className={styles.linkItem}>
+                  <span>Animal Charities</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/zoiko-mobile-animal-welfare-partnership" className={styles.linkItem}>
+                  <span>Charity Partnerships</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/get-involved" className={styles.linkItem}>
+                  <span>Get Involved</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/how-giving-works" className={styles.linkItem}>
+                  <span>How Giving Works</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/stories-and-impact" className={styles.linkItem}>
+                  <span>Stories &amp; Impact</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
 
-                    {/* Col 2: Manage Your Team */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Users size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Manage Your Team</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Bring Employee Devices</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Add or Change Lines</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/shop-phones" className={styles.linkItem}>
-                          <span>Business Devices</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/support" className={styles.linkItem}>
-                          <span>Account &amp; Billing Support</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/customer-service" className={styles.linkItem}>
-                          <span>Dedicated Support</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+            {/* Col 2: Music & Culture */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Music size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Music &amp; Culture</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/music-hub" className={styles.linkItem}>
+                  <span>Zoiko Music Hub</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/music-hub" className={styles.linkItem}>
+                  <span>Artists &amp; Creators</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/music-events-perk#perks" className={styles.linkItem}>
+                  <span>Music Perks</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/events-and-experiences" className={styles.linkItem}>
+                  <span>Events &amp; Experiences</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
 
-                    {/* Col 3: Business Solutions */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Layers size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Business Solutions</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Small Business</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Retail &amp; Field Teams</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/business-deals" className={styles.linkItem}>
-                          <span>Remote &amp; Hybrid Teams</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/international-callings" className={styles.linkItem}>
-                          <span>International Calling</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/contact-us" className={styles.linkItem}>
-                          <span>Request a Quote</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+            {/* Col 3: Special Programs */}
+            <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
+              <div className={styles.colHeader}>
+                <span className={styles.colHeaderIcon}>
+                  <Users size={18} />
+                </span>
+                <span className={styles.colHeaderTitle}>Special Programs</span>
+              </div>
+              <div className={styles.linkList}>
+                <Link href="/college-student" className={styles.linkItem}>
+                  <span>Students</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/military-veterans" className={styles.linkItem}>
+                  <span>Military &amp; Veterans</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/postal-service-workers" className={styles.linkItem}>
+                  <span>USPS Employees</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/family-plans" className={styles.linkItem}>
+                  <span>Families</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+                <Link href="/become-partner" className={styles.linkItem}>
+                  <span>Become a Partner</span>
+                  <ChevronRight size={13} className={styles.chevronArrow} />
+                </Link>
+              </div>
+            </div>
 
-                    {/* Col 4: Promo Card */}
-                    <div className={styles.promoCol}>
-                      <div className={styles.promoCard}>
-                        <div>
-                          <div className={styles.promoTitle}>
-                            Wireless built for growing teams.
-                          </div>
-                          <div className={styles.bulletList}>
-                            <div className={styles.bulletItem}>
-                              <span className={styles.greenDot} />
-                              <span>Flexible multi-line plans</span>
-                            </div>
-                            <div className={styles.bulletItem}>
-                              <span className={styles.greenDot} />
-                              <span>Bring your own devices</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className={styles.promoActionArea}>
-                          <Link href="/business-deals" className={styles.promoBtn}>
-                            Explore Business Plans ›
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+            {/* Col 4: Promo Card */}
+            <div className={styles.promoCol}>
+              <div className={styles.promoCard}>
+                <div>
+                  <div className={styles.promoTitle}>
+                    A network for what you love.
                   </div>
-                </li>
-
-                {/* 5. International */}
-                <li
-                  className={`zk-menu-item ${styles.hasMegaMenu} ${
-                    pathname?.includes("international") ||
-                    pathname?.includes("travel")
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  <button type="button" className="zk-menu-button">
-                    International
-                    <ChevronDown size={13} className="zk-menu-chevron" />
-                  </button>
-
-                  {/* Mega Menu: International */}
-                  <div className={styles.megaMenu}>
-                    {/* Col 1: Call Abroad */}
-                    <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <PhoneCall size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Call Abroad</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/international-callings" className={styles.linkItem}>
-                          <span>International Calling</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/roaming-rates" className={styles.linkItem}>
-                          <span>Check Calling Rates</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/international-callings" className={styles.linkItem}>
-                          <span>Calling Add-Ons</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/faq" className={styles.linkItem}>
-                          <span>International FAQs</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 2: Travel & Roaming */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Plane size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Travel &amp; Roaming</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/travel-plans" className={styles.linkItem}>
-                          <span>International Roaming</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/canada-mexico-roaming-plans" className={styles.linkItem}>
-                          <span>Canada &amp; Mexico</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/travel-plans" className={styles.linkItem}>
-                          <span>Travel Passes</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/esim" className={styles.linkItem}>
-                          <span>Travel eSIM</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 3: Before You Go */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Globe size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Before You Go</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/check-a-destination" className={styles.linkItem}>
-                          <span>Check a Destination</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/check-compatibility" className={styles.linkItem}>
-                          <span>Device Compatibility</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/support" className={styles.linkItem}>
-                          <span>Travel Support</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/international-usage-tips" className={styles.linkItem}>
-                          <span>International Usage Tips</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 4: Promo Card */}
-                    <div className={styles.promoCol}>
-                      <div className={styles.promoCard}>
-                        <div>
-                          <div className={styles.promoTitle}>
-                            Wherever life takes you, stay connected.
-                          </div>
-                          <div className={styles.promoSubtext}>
-                            Country-specific rates and availability shown before you buy.
-                          </div>
-                        </div>
-                        <div className={styles.promoActionArea}>
-                          <Link href="/explore-international" className={styles.promoBtn}>
-                            Explore International ›
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+                  <div className={styles.promoSubtext}>
+                    Support animals. Discover music. Connect with people.
                   </div>
-                </li>
+                </div>
+                <div className={styles.promoActionArea}>
+                  <Link href="/explore-community" className={styles.promoBtn}>
+                    Explore Community ›
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
-                {/* 6. Community */}
-                <li
-                  className={`zk-menu-item ${styles.hasMegaMenu} ${
-                    pathname?.includes("student") ||
-                    pathname?.includes("military") ||
-                    pathname?.includes("animal") ||
-                    pathname?.includes("music")
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  <button type="button" className="zk-menu-button">
-                    Community
-                    <ChevronDown size={13} className="zk-menu-chevron" />
-                  </button>
+        {/* =========================================================
+            OLD SIMPLE DROPDOWNS CODE (COMMENTED OUT AS REQUESTED)
+            ========================================================= */}
+        {false && (
+          <div className="old-community-links">
+            <Link href="/college-student">College Students</Link>
+            <Link href="/military-veterans">Military &amp; Veterans</Link>
+            <Link href="/postal-service-workers">Postal Service Workers</Link>
+            <Link href="/animal-charities">Animal Charities</Link>
+            <Link href="/music-hub">Zoiko Music Hub</Link>
+          </div>
+        )}
 
-                  {/* Mega Menu: Community */}
-                  <div className={styles.megaMenu}>
-                    {/* Col 1: Animal Causes */}
-                    <div className={`${styles.megaCol} ${styles.megaColFirst}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <PawPrint size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Animal Causes</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/animal-charities" className={styles.linkItem}>
-                          <span>Animal Charities</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/zoiko-mobile-animal-welfare-partnership" className={styles.linkItem}>
-                          <span>Charity Partnerships</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/get-involved" className={styles.linkItem}>
-                          <span>Get Involved</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/how-giving-works" className={styles.linkItem}>
-                          <span>How Giving Works</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/stories-and-impact" className={styles.linkItem}>
-                          <span>Stories &amp; Impact</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+        {/* =========================================================
+            OLD SIMPLE DROPDOWNS CODE (COMMENTED OUT AS REQUESTED)
+            ========================================================= */}
+        {false && (
+          <li className="zk-menu-item">
+            <div className="zk-dropdown-pane">
+              <Link href="/wireless-plans" className="zk-dropdown-item">All Wireless Plans</Link>
+              <Link href="/prepaid-plans" className="zk-dropdown-item">Prepaid Plans</Link>
+              <Link href="/postpaid-plans" className="zk-dropdown-item">Postpaid Plans</Link>
+              <Link href="/family-plans" className="zk-dropdown-item">Family &amp; Multi-Line</Link>
+              <Link href="/top-up-plan" className="zk-dropdown-item">Top-Up Plans</Link>
+              <Link href="/offer-page" className="zk-dropdown-item">Current Offers</Link>
+            </div>
+          </li>
+        )}
+      </ul>
+    </nav>
 
-                    {/* Col 2: Music & Culture */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Music size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Music &amp; Culture</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/music-hub" className={styles.linkItem}>
-                          <span>Zoiko Music Hub</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/music-hub" className={styles.linkItem}>
-                          <span>Artists &amp; Creators</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/music-events-perk#perks" className={styles.linkItem}>
-                          <span>Music Perks</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/events-and-experiences" className={styles.linkItem}>
-                          <span>Events &amp; Experiences</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
+    {/* RIGHT SIDE ACTIONS */}
+    <div className="zk-actions">
+      <span className="zk-divider" />
 
-                    {/* Col 3: Special Programs */}
-                    <div className={`${styles.megaCol} ${styles.megaColDivider}`}>
-                      <div className={styles.colHeader}>
-                        <span className={styles.colHeaderIcon}>
-                          <Users size={18} />
-                        </span>
-                        <span className={styles.colHeaderTitle}>Special Programs</span>
-                      </div>
-                      <div className={styles.linkList}>
-                        <Link href="/college-student" className={styles.linkItem}>
-                          <span>Students</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/military-veterans" className={styles.linkItem}>
-                          <span>Military &amp; Veterans</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/postal-service-workers" className={styles.linkItem}>
-                          <span>USPS Employees</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/family-plans" className={styles.linkItem}>
-                          <span>Families</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                        <Link href="/become-partner" className={styles.linkItem}>
-                          <span>Become a Partner</span>
-                          <ChevronRight size={13} className={styles.chevronArrow} />
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* Col 4: Promo Card */}
-                    <div className={styles.promoCol}>
-                      <div className={styles.promoCard}>
-                        <div>
-                          <div className={styles.promoTitle}>
-                            A network for what you love.
-                          </div>
-                          <div className={styles.promoSubtext}>
-                            Support animals. Discover music. Connect with people.
-                          </div>
-                        </div>
-                        <div className={styles.promoActionArea}>
-                          <Link href="/explore-community" className={styles.promoBtn}>
-                            Explore Community ›
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                {/* =========================================================
-                    OLD SIMPLE DROPDOWNS CODE (COMMENTED OUT AS REQUESTED)
-                    ========================================================= */}
-                {false && (
-                  <div className="old-community-links">
-                    <Link href="/college-student">College Students</Link>
-                    <Link href="/military-veterans">Military &amp; Veterans</Link>
-                    <Link href="/postal-service-workers">Postal Service Workers</Link>
-                    <Link href="/animal-charities">Animal Charities</Link>
-                    <Link href="/music-hub">Zoiko Music Hub</Link>
-                  </div>
-                )}
-
-                {/* =========================================================
-                    OLD SIMPLE DROPDOWNS CODE (COMMENTED OUT AS REQUESTED)
-                    ========================================================= */}
-                {false && (
-                  <li className="zk-menu-item">
-                    <div className="zk-dropdown-pane">
-                      <Link href="/wireless-plans" className="zk-dropdown-item">All Wireless Plans</Link>
-                      <Link href="/prepaid-plans" className="zk-dropdown-item">Prepaid Plans</Link>
-                      <Link href="/postpaid-plans" className="zk-dropdown-item">Postpaid Plans</Link>
-                      <Link href="/family-plans" className="zk-dropdown-item">Family &amp; Multi-Line</Link>
-                      <Link href="/top-up-plan" className="zk-dropdown-item">Top-Up Plans</Link>
-                      <Link href="/offer-page" className="zk-dropdown-item">Current Offers</Link>
-                    </div>
-                  </li>
-                )}
-              </ul>
-            </nav>
-
-            {/* RIGHT SIDE ACTIONS */}
-            {/* RIGHT SIDE ACTIONS */}
-<div className="zk-actions">
-  <span style={{ display: "inline-block", width: "1px", height: "28px", background: "#D9D9E0", margin: "0 14px", flexShrink: 0 }} />
-
-  {/* Search Toggle Button */}
-  <button
-    type="button"
-    className="zk-icon-btn"
-    onClick={() => setSearchOpen(!searchOpen)}
-    aria-label="Search"
-  >
-    <Search size={19} />
-  </button>
-
-  {/* Shopping Cart Button */}
-  <Link
-    href="/checkout"
-    className="zk-icon-btn"
-    aria-label="View Shopping Cart"
-  >
-    <ShoppingCart size={19} />
-    <span className="zk-cart-badge" style={{ background: "#D6187F" }}>{cartCount}</span>
-  </Link>
-
-  {/* Sign In / Account */}
-  {isLoggedIn ? (
-    <div style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
-      <Link href="/dashboard" className="zk-signin-link">
-        <User size={15} style={{ marginRight: "4px", verticalAlign: "middle" }} />
-        {user?.name?.split(" ")[0] || "Account"}
-      </Link>
+      {/* Search Toggle Button */}
       <button
-        onClick={handleLogout}
+        type="button"
         className="zk-icon-btn"
-        title="Logout"
-        style={{ width: "32px", height: "32px" }}
+        onClick={() => setSearchOpen(!searchOpen)}
+        aria-label="Search"
       >
-        <LogOut size={16} />
+        <Search size={19} />
+      </button>
+
+      {/* Shopping Cart Button */}
+      <Link
+        href="/checkout"
+        className="zk-icon-btn"
+        aria-label="View Shopping Cart"
+      >
+        <ShoppingCart size={19} />
+        <span className="zk-cart-badge" style={{ background: "#D6187F" }}>{cartCount}</span>
+      </Link>
+
+      {/* Sign In / Account */}
+      {isLoggedIn ? (
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+          <Link href="/dashboard" className="zk-signin-link">
+            <User size={15} style={{ marginRight: "4px", verticalAlign: "middle" }} />
+            {user?.name?.split(" ")[0] || "Account"}
+          </Link>
+          <button
+            onClick={handleLogout}
+            className="zk-icon-btn"
+            title="Logout"
+            style={{ width: "32px", height: "32px" }}
+          >
+            <LogOut size={16} />
+          </button>
+        </div>
+      ) : (
+        <Link
+          href="/login"
+          className="zk-signin-link"
+          style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+          </svg>
+          <span>Sign In</span>
+        </Link>
+      )}
+
+      {/* Primary Call-to-Action */}
+      <Link
+        href="/prepaid-plans"
+        className="zk-getstarted-btn"
+        style={{ background: "#E0097F" }}
+      >
+        Get Started ›
+      </Link>
+
+      {/* Mobile Drawer Toggle */}
+      <button
+        type="button"
+        className="zk-mobile-toggle"
+        onClick={() => setMobileMenuOpen(true)}
+        aria-label="Open mobile menu"
+      >
+        <Menu size={26} />
       </button>
     </div>
-  ) : (
-    <Link
-      href="/login"
-      className="zk-signin-link"
-      style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-    >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
-      </svg>
-      <span>Sign In</span>
-    </Link>
-  )}
-
-  {/* Primary Call-to-Action */}
-  <Link
-    href="/prepaid-plans"
-    className="zk-getstarted-btn"
-    style={{ background: "#E0097F" }}
-  >
-    Get Started ›
-  </Link>
-
-  {/* Mobile Drawer Toggle */}
-  <button
-    type="button"
-    className="zk-mobile-toggle"
-    onClick={() => setMobileMenuOpen(true)}
-    aria-label="Open mobile menu"
-  >
-    <Menu size={26} />
-  </button>
-</div>
-          </div>
-        </header>
+  </div>
+</header>
 
         {/* ==============================================================
             EXPANDABLE SEARCH BAR
